@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   render() {
@@ -37,6 +37,7 @@ class MyDocument extends Document {
             rel="mask-icon"
           />
           <meta content="#ffffff" name="theme-color" />
+          <meta name="robots" content="noindex, nofollow" />
           <meta content="#ffffff" name="msapplication-TileColor" />
           <meta
             content="/static/favicons/browserconfig.xml"
