@@ -1,37 +1,19 @@
-name: Test & Deploy
+name: Deploy
 on:
   push:
-    branches: [main]
+    branches:
+      - main # Changing the branch here would also work
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.5
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          node-version: 12
-      - run: yarn
-      - run: yarn build
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Heroku login
-        run: |
-          cat > ~/.netrc <<EOF
-            machine api.heroku.com
-              login $HEROKU_EMAIL
-              password $HEROKU_API_KEY
-            machine git.heroku.com
-              login $HEROKU_EMAIL
-              password $HEROKU_API_KEY
-          EOF
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }} #Must be unique in Heroku
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
-      - name: Add Heroku remote
-        run: heroku git:remote --app $HEROKU_APP_NAME
-        env:
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      - name: Push to Heroku
-        run: git push heroku master
+          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
