@@ -2,7 +2,7 @@ import Container from '@/components/Container';
 import Step from '@/components/Step';
 import { useState } from 'react';
 
-export default function matrix() {
+export default function Matrix() {
   const MATRIX_TYPES = [
     { number: 1, slug: 'Addition', title: 'Find Addition of two matrix' },
     { number: 2, slug: 'Adjoint', title: 'Find Adjoint' },
