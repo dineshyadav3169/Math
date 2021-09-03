@@ -25,6 +25,7 @@ export default function Solution(props) {
 
   return (
     <div className="bg-white mt-2 text-black">
+      <hr className="w-full border-1 border-gray-200 mb-8" />
       <div className="mt-2">
         <h2 className="font-bold text-xl md:text-4xl tracking-tight mb-4 mt-8 text-black">
           Solution
@@ -32,7 +33,7 @@ export default function Solution(props) {
       </div>
       <div className="mt-2">
         {props.children}
-        <div className="flex rounded-md shadow items-center justify-between w-full max-w-4xl px-4 py-5 mx-auto my-0 text-gray-900 md:my-8 bg-opacity-60">
+        <div className="flex items-center mx-auto my-0 text-gray-900">
           <div>
             <button
               className="py-2 px-2 mx-1 rounded-md text-white bg-red-600 sm:py-2 sm:px-2 hover:bg-red-500"
