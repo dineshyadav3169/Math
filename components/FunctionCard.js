@@ -11,7 +11,7 @@ export default function FunctionCard({
   return (
     <a
       href={`/${slug}`}
-      className="border border-grey-200 dark:border-gray-900 rounded p-4 w-full"
+      className="border border-grey-200 dark:border-gray-900 rounded p-4 w-full hover:border-black hover:border-2"
       {...rest}
     >
       {hasImage && (

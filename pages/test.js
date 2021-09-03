@@ -1,4 +1,4 @@
-import Solution from '@/layouts/solver';
+import Solution from '@/layouts/Solution';
 
 export default function testPage() {
   return (
