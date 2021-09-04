@@ -12,7 +12,7 @@ export default function Solution(props) {
   const formHandler = (event) => {
     event.preventDefault();
     setForm({ popup: form.popup, state: true });
-
+    console.log('in debug');
     //TO:DO POST API here
     setTimeout(() => {
       setForm({ popup: form.popup, state: true, isMessageReported: true });
