@@ -1,27 +1,25 @@
-import prisma from '@/lib/prisma';
+import db from '@/lib/db';
+import runMiddleware from '@/utils/middleware';
 
 export default async function reportHandler(req, res) {
-  const { method } = req;
+  await runMiddleware(req, res);
+
+  const { method, body } = req;
 
   switch (method) {
-    case 'GET':
+    case 'POST':
       try {
-        const report = await prisma.report.create({
-          id: 122,
-          createdAt: new Date().toISOString(),
-          description: 'this is a test',
-          question: 'question test',
-          questionSlug: '/matrix/addition'
-        });
-        const reports = await prisma.report;
-        res.status(200).json(reports);
+        const refs = db.ref('report');
+        refs.set(body);
+
+        res.status(200).json(body);
       } catch (e) {
         console.error('Request error', e);
         res.status(500).json({ error: 'Error fetching report' });
       }
       break;
     default:
-      res.setHeader('Allow', ['GET']);
+      res.setHeader('Allow', ['POST']);
       res.status(405).end(`Method ${method} Not Allowed`);
       break;
   }

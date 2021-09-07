@@ -8,8 +8,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^2.30.3",
     "@tailwindcss/typography": "^0.4.1",
+    "cors": "^2.8.5",
+    "firebase-admin": "^9.11.1",
     "next": "^11.1.0",
     "preact": "^10.5.14",
     "react": "^17.0.2",
@@ -22,8 +23,7 @@
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.0",
     "postcss": "^8.3.6",
-    "prettier": "^2.3.2",
-    "prisma": "^2.30.3"
+    "prettier": "^2.3.2"
   },
   "prettier": {
     "arrowParens": "always",
