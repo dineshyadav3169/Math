@@ -7,7 +7,10 @@ export default function Addition() {
       title="Addition of Matrix"
       description="Find Addition of two Matrix"
     >
-      <Solution></Solution>
+      <Solution
+        questionID={'d5f29852'}
+        downloadLink={'/api/download'}
+      ></Solution>
     </Container>
   );
 }
