@@ -59,10 +59,10 @@ export default function Container(props) {
             Solution's
           </a>
           <a
-            href="/feedback"
+            href="/contact"
             className="py-2 px-2 mx-1 text-gray-900 rounded-md sm:py-2 sm:px-2 hover:bg-gray-100"
           >
-            Feedback
+            Contact
           </a>
           <a
             href="/about"

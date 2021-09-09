@@ -11,7 +11,7 @@ export default function FunctionCard({
   return (
     <a
       href={`/${slug}`}
-      className="border border-grey-200 dark:border-gray-900 rounded p-4 w-full hover:border-black hover:border-2"
+      className="border shadow border-grey-200 dark:border-gray-900 rounded-md p-4 w-full hover:shadow-md"
       {...rest}
     >
       {hasImage && (
@@ -23,10 +23,13 @@ export default function FunctionCard({
           className="rounded-full"
         />
       )}
+      <hr className="w-full border-1 border-gray-200 mb-3" />
       <h3 className="text-lg font-bold text-left mt-2 text-gray-900 dark:text-gray-100">
         {title}
       </h3>
-      <p className="mt-1 text-gray-700 dark:text-gray-400">{description}</p>
+      <p className="mt-1 text-gray-700 mb-4 dark:text-gray-400">
+        {description}
+      </p>
     </a>
   );
 }

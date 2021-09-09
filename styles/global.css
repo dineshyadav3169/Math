@@ -89,3 +89,7 @@ html {
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
 }
+.BoxShadowNormal{
+  -webkit-box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+}
