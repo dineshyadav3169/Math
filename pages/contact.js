@@ -4,6 +4,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import SucessMessage from '@/components/SucessMessage';
 import Fetcher from '@/lib/fetcher';
 import { CONTACT } from '@/lib/endpoints';
+import { BASE_URI } from '@/lib/base'
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -30,7 +31,7 @@ export default function Contact() {
       message: message.current.value
     };
 
-    Fetcher(CONTACT, REQUEST_DATA)
+    Fetcher(CONTACT, REQUEST_DATA, BASE_URI)
       .then(() => {
         setForm({
           isMessageSent: true,

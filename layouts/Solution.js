@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import Fetcher from '@/lib/fetcher';
 import { REPORT } from '@/lib/endpoints';
+import { BASE_URI } from '@/lib/base'
 
 export default function Solution(props) {
   const [form, setForm] = useState({
@@ -18,10 +19,10 @@ export default function Solution(props) {
 
     const REQUEST_DATA = {
       report_reason: reasonInput.current.value,
-      report_question_id: props.questionID || 'NaNa'
+      report_question_id: props.question || 'NaNa'
     };
 
-    Fetcher(REPORT, REQUEST_DATA)
+    Fetcher(REPORT, REQUEST_DATA, BASE_URI)
       .then(() => {
         setForm({
           isMessageReported: true,
@@ -44,10 +45,10 @@ export default function Solution(props) {
   };
 
   return (
-    <div className="bg-white mt-2 text-black">
-      <hr className="w-full border-1 border-gray-200 mb-8" />
+    <>
+      <hr className="w-full border-1 border-gray-200 mt-8" />
       <div className="mt-2">
-        <h2 className="font-bold text-xl md:text-4xl tracking-tight mb-4 mt-8 text-black">
+        <h2 className="font-bold text-lg md:text-2xl tracking-tight mb-4 mt-8 text-black">
           Solution
         </h2>
       </div>
@@ -135,6 +136,6 @@ export default function Solution(props) {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
