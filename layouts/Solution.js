@@ -19,7 +19,7 @@ export default function Solution(props) {
 
     const REQUEST_DATA = {
       report_reason: reasonInput.current.value,
-      report_question_id: props.question || 'NaNa'
+      report_question: props.question || 'NaNa'
     };
 
     Fetcher(REPORT, REQUEST_DATA, BASE_URI)
@@ -41,19 +41,34 @@ export default function Solution(props) {
     setForm({ popup: !form.popup });
   };
   const downloadHnadler = () => {
+    // Send solution response html to api
     console.log('Donwload');
   };
+
+  function mathTypeSet(){
+    try{
+      MathJax.typesetPromise();
+    }catch(e){
+      console.log('Could Not set Math type')
+      setTimeout(()=>{mathTypeSet()},2000) 
+    }
+  }
+  mathTypeSet()
 
   return (
     <>
       <hr className="w-full border-1 border-gray-200 mt-8" />
       <div className="mt-2">
-        <h2 className="font-bold text-lg md:text-2xl tracking-tight mb-4 mt-8 text-black">
+        {/* <h2 className="font-bold text-lg md:text-2xl tracking-tight mb-4 mt-8 text-black">
           Solution
-        </h2>
+        </h2> */}
       </div>
       <div className="mt-2">
-        {props.children}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: props.children
+          }}>  
+        </div>
         <div className="flex items-center mx-auto my-0 text-gray-900">
           <div>
             <button

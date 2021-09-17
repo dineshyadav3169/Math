@@ -131,9 +131,8 @@ export default function LuDoolittle() {
       {solution && (
         <Solution
           question={question}
-          downloadLink={solution.downloadLink}
         >
-          {solution.html}
+          {solution}
         </Solution>
       )}
     </Container>

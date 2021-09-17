@@ -28,14 +28,14 @@ module.exports = {
 
 // https://securityheaders.com
 const ContentSecurityPolicy = `
-  default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com;
-  child-src *.youtube.com *.google.com *.twitter.com;
-  style-src 'self' 'unsafe-inline' *.googleapis.com;
+  default-src 'self' cdn.jsdelivr.net cdnjs.cloudflare.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.jsdelivr.net cdn.usefathom.com cdnjs.cloudflare.com;
+  child-src *.youtube.com *.google.com *.twitter.com cdn.jsdelivr.net cdnjs.cloudflare.com;
+  style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net cdnjs.cloudflare.com;
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
-  font-src 'self';
+  font-src 'self' cdn.jsdelivr.net cdnjs.cloudflare.com;
 `;
 
 const securityHeaders = [

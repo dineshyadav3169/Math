@@ -84,6 +84,7 @@ export default function LuCrout() {
         };
       }
     } catch (e) {
+      console.log(e)
       setIsError(true);
     }
     Fetcher(MATRIX_LUCROUT, {createdAt: new Date().toISOString() ,...POST_DATA})
@@ -92,7 +93,8 @@ export default function LuCrout() {
         setIsLoading(false);
         setIsError(false);
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e)
         setIsError(true);
       });
   };
@@ -131,9 +133,8 @@ export default function LuCrout() {
       {solution && (
         <Solution
           question={question}
-          downloadLink={solution.downloadLink}
         >
-          {solution.html}
+          {solution}
         </Solution>
       )}
     </Container>

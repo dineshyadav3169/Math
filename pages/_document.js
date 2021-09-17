@@ -43,6 +43,8 @@ class MyDocument extends Document {
             content="/static/favicons/browserconfig.xml"
             name="msapplication-config"
           />
+          <script defer src="/script.js"></script>
+          <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
         </Head>
         <body className="bg-white text-black">
           <Main />
