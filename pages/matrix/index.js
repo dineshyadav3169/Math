@@ -43,7 +43,7 @@ export default function Matrix() {
           />
         </svg>
       </div>
-      <div className="w-full max-w-3xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-2">
+      <div className="mx-auto w-full max-w-3xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-2">
         <div>
           <h2 className="font-bold text-xl md:text-2xl tracking-tight mb-4 mt-8 text-black">
             Simple Problems

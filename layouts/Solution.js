@@ -63,12 +63,13 @@ export default function Solution(props) {
           Solution
         </h2> */}
       </div>
-      <div className="mt-2">
+      <div className="mt-2 text-left">
         <div
           dangerouslySetInnerHTML={{
             __html: props.children
           }}>  
         </div>
+        <hr className="w-full border-1 border-gray-200 my-8" />
         <div className="flex items-center mx-auto my-0 text-gray-900">
           <div>
             <button

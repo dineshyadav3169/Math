@@ -1,9 +1,9 @@
-import Container from '@/components/Container';
+import HomeContainer from '@/components/HomeContainer';
 import FunctionCard from '@/components/FunctionCard';
 
 export default function Blog() {
   return (
-    <Container
+    <HomeContainer
       title="Home - Math"
       description="Math problems solved step by step"
     >
@@ -36,6 +36,6 @@ export default function Blog() {
           description="Solve Algebra Problem"
         />
       </div>
-    </Container>
+    </HomeContainer>
   );
 }

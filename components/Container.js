@@ -41,46 +41,47 @@ export default function Container(props) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <nav className="flex bg-blue-200 rounded-md shadow items-center justify-between w-full max-w-4xl px-8 py-5 mx-auto my-0 text-gray-900 md:my-8 bg-opacity-60">
-        <a href="#skip" className="skip-nav">
-          Skip to content
-        </a>
-        <div>
-          <a
-            href="/"
-            className="py-2 px-2 mx-1 rounded-md text-white bg-black sm:py-2 sm:px-2 hover:bg-gray-100 hover:text-black"
-          >
-            Home
-          </a>
-          <a
-            href="/solution"
-            className="py-2 px-2 mx-1 text-gray-900 rounded-md sm:py-2 sm:px-2 hover:bg-gray-100"
-          >
-            Solution's
-          </a>
-          <a
-            href="/contact"
-            className="py-2 px-2 mx-1 text-gray-900 rounded-md sm:py-2 sm:px-2 hover:bg-gray-100"
-          >
-            Contact
-          </a>
-          <a
-            href="/about"
-            className="py-2 px-2 mx-1 text-gray-900 rounded-md sm:py-2 sm:px-2 hover:bg-gray-100"
-          >
-            About
-          </a>
+
+      <nav className="z-20 text-lg bg-gray-800 text-white w-full p-0 fixed top-0">
+        <a href="#skip" className="skip-nav">Skip to content</a>
+        <div className="overflow-auto">
+          <div className=" overflow-hidden w-full h-11 float-left">
+            <p className="float-left w-auto py-2 px-3">some</p>
+            <p className="float-left w-auto py-2 px-3">somw</p>
+          </div>
         </div>
       </nav>
-      <main
-        id="skip"
-        className="flex flex-col justify-center px-1 sm:px-4 md:px-8 bg-white"
-      >
-        <div className="flex flex-col items-start max-w-3xl w-10/12 mx-auto mb-16">
-          {children}
+      <div className="h-full w-52 bg-white fixed overflow-auto top-11 z-10 block">
+        <div className="fixed top-0 pt-11 pb-0 h-full w-56 bg-transparent">
+          <div className="h-full w-full overflow-x-hidden overflow-y-scroll pt-5">
+            <h2 className="left">
+              React Tutorial
+            </h2>
+            <a target="_top" href="/">
+              React Home
+            </a>
+            <a target="_top" href="/">
+              React Intro
+            </a>
+          </div>
         </div>
-        <Footer />
-      </main>
+      </div>
+      <div className="ml-52 pt-11 text-black bg-white">
+        <div className="text-black bg-white before:content-[''] before:table before:clear-both after:content-[''] after:table after:clear-both">
+          <main id="skip" className="text-center p-8 pt-4 border-gray-200 border-l-2 border-r-2 w-10/12 float-left ">
+            <div className="leaderboard-ads-space">
+              <div id="adngin-main_leaderboard-0"></div>
+            </div>
+            <hr />
+            {children}
+            <br />
+          </main>
+          <div className="py-4 px-2 text-center w-2/12 float-left">
+            <div id="right-add-space"></div>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }

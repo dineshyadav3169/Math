@@ -5,6 +5,7 @@ import Fetcher from '@/lib/fetcher';
 import { MATRIX_LUCROUT } from '@/lib/endpoints';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ErrorMessage from '@/components/ErrorMessage';
+import PrevNext from '@/components/PrevNext'
 
 export default function LuCrout() {
   const [isLoading, setIsLoading] = useState(false);
@@ -107,7 +108,8 @@ export default function LuCrout() {
       <h1 className="font-bold text-xl md:text-3xl tracking-tight mb-4 mt-1 text-black">
       LU decomposition using Crout's method
       </h1>
-      <div className="flex self-center">
+      <PrevNext prevoiusLink='/' nextLink='/'/>
+      <div className="flex self-center justify-center">
         <div className="grid text-center">
           <label htmlFor="question">Enter Equations line by line like</label>
           <textarea
