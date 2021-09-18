@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
 
 /* eslint-disable @next/next/no-html-link-for-pages */
-export default function SideNav({ data }) {
+export default function SideNav({ data, isSlide}) {
   const router = useRouter();
   const active = router.route.split('/')[2];
   
   return (
-    <div className="h-full w-52 bg-gray-200 fixed overflow-auto top-11 z-10 custom-break:block hidden">
+    <div className={`h-full w-52 bg-gray-200 fixed overflow-auto top-11 z-10 custom-break:block ${isSlide? "hidden" : ""}`}>
       <div className="fixed top-0 pt-11 pb-0 h-full w-56 bg-transparent">
         <div className="h-full w-full overflow-x-hidden overflow-y-scroll pt-5">
           {data.map((collection) => (

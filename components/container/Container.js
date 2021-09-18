@@ -6,10 +6,13 @@ import Nav from './Nav';
 import Ad1 from '../ads/Ad1';
 import SideNav from './SideNav';
 import RightNav from './RightNav';
+import { useState } from 'react';
 
 export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
+  const [ isSlide, setSlide ] = useState(false);
+
   const meta = {
     title: 'Math - step by step',
     description: `Home page of math web app`,
@@ -47,9 +50,10 @@ export default function Container(props) {
         )}
       </Head>
 
-      <Nav />
+      <Nav setSlide={setSlide}/>
       <SideNav
         data={meta.slideContent}
+        isSlide={isSlide}
       />
       <div className="custom-break:ml-52 m-0 pt-11 text-black bg-white ">
         <div className="text-black bg-white before:content-[''] before:table before:clear-both after:content-[''] after:table after:clear-both">

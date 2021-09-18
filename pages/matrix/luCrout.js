@@ -112,11 +112,11 @@ export default function LuCrout({ LUCROUT }) {
       slideData={LUCROUT.slideData}
     >
       <div className="flex self-center justify-center">
-        <div className="grid text-center">
+        <div className="grid text-center w-10/12 lg:w-8/12">
           <label htmlFor="question">Enter Equations line by line like</label>
           <textarea
             id="question"
-            className=" bg-yellow-300 border-4 border-solid p-2 outline-none rounded focus:border-red-300"
+            className=" bg-yellow-300 h-28 border-4 border-solid p-2 outline-none rounded focus:border-red-300"
             placeholder="Enter Question here"
             value={question}
             onChange={(e) => {
