@@ -1,11 +1,10 @@
-import Container from '@/components/Container';
 import Solution from '@/layouts/Solution';
 import { useState } from 'react';
 import Fetcher from '@/lib/fetcher';
 import { MATRIX_LUCROUT } from '@/lib/endpoints';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ErrorMessage from '@/components/ErrorMessage';
-import PrevNext from '@/components/PrevNext'
+import Solver from '@/layouts/Solver';
 
 export default function LuCrout() {
   const [isLoading, setIsLoading] = useState(false);
@@ -85,30 +84,40 @@ export default function LuCrout() {
         };
       }
     } catch (e) {
-      console.log(e)
+      console.log(e);
       setIsError(true);
     }
-    Fetcher(MATRIX_LUCROUT, {createdAt: new Date().toISOString() ,...POST_DATA})
+    Fetcher(MATRIX_LUCROUT, {
+      createdAt: new Date().toISOString(),
+      ...POST_DATA
+    })
       .then((res) => {
         setSolution(res);
         setIsLoading(false);
         setIsError(false);
       })
       .catch((e) => {
-        console.log(e)
+        console.log(e);
         setIsError(true);
       });
   };
 
   return (
-    <Container
-      title="LU decomposition Crout luCrout"
-      description="LU decomposition Crout luCrout"
+    <Solver
+      pageTitle="LU decomposition Crout luCrout"
+      pageDescription="LU decomposition Crout luCrout"
+      heading="LU decomposition using Crout's method"
+      currentPage="luCrout"
+      slideData={[{
+        index:0,
+        slideNavTitle: 'Matrix',
+        slideNavData: [{link:'luCrout',name:'LuCrout'},{link:'luDoolittle',name:'LuDoolittle'},{link:'addition',name:'Addition'}]
+      },{
+        index:1,
+        slideNavTitle: 'Advance',
+        slideNavData: [{link:'luCrtout',name:'ALuCrout'},{link:'luDoolittle',name:'LuDoolittle'},{link:'addition',name:'Addition'}]
+      }]}
     >
-      <h1 className="font-bold text-xl md:text-3xl tracking-tight mb-4 mt-1 text-black">
-      LU decomposition using Crout's method
-      </h1>
-      <PrevNext prevoiusLink='/' nextLink='/'/>
       <div className="flex self-center justify-center">
         <div className="grid text-center">
           <label htmlFor="question">Enter Equations line by line like</label>
@@ -132,13 +141,7 @@ export default function LuCrout() {
           </button>
         </div>
       </div>
-      {solution && (
-        <Solution
-          question={question}
-        >
-          {solution}
-        </Solution>
-      )}
-    </Container>
+      {solution && <Solution question={question}>{solution}</Solution>}
+    </Solver>
   );
 }

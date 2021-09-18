@@ -1,4 +1,4 @@
-import Container from '@/components/Container';
+import HomeContainer from '@/components/HomeContainer';
 import { useRef, useState } from 'react';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import SucessMessage from '@/components/SucessMessage';
@@ -53,7 +53,7 @@ export default function Contact() {
       });
   };
   return (
-    <Container title="Contact" description="">
+    <HomeContainer title="Contact" description="">
       <form className="w-full max-w-lg" onSubmit={conatctFormHandler}>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -137,6 +137,6 @@ export default function Contact() {
           )}
         </div>
       </form>
-    </Container>
+    </HomeContainer>
   );
 }

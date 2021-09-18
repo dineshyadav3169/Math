@@ -1,4 +1,4 @@
-import Container from '@/components/Container';
+import Container from '@/components/container/Container';
 import Solution from '@/layouts/Solution';
 import { useState } from 'react';
 import Fetcher from '@/lib/fetcher';

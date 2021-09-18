@@ -1,8 +1,8 @@
-import Container from '@/components/Container';
+import HomeContainer from '@/components/HomeContainer';
 
 export default function NotFound() {
   return (
-    <Container title="404 – Unavailable">
+    <HomeContainer title="404 – Unavailable">
       <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
         404 – Unavailable
       </h1>
@@ -17,6 +17,6 @@ export default function NotFound() {
       >
         Return Home
       </a>
-    </Container>
+    </HomeContainer>
   );
 }
