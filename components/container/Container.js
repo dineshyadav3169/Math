@@ -10,7 +10,6 @@ import RightNav from './RightNav';
 export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
-  console.log(router.route)
   const meta = {
     title: 'Math - step by step',
     description: `Home page of math web app`,

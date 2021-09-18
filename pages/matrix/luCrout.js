@@ -5,8 +5,9 @@ import { MATRIX_LUCROUT } from '@/lib/endpoints';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ErrorMessage from '@/components/ErrorMessage';
 import Solver from '@/layouts/Solver';
+import { LUCROUT } from '@/data/matrixPages';
 
-export default function LuCrout() {
+export default function LuCrout({ LUCROUT }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [solution, setSolution] = useState(false);
@@ -104,19 +105,11 @@ export default function LuCrout() {
 
   return (
     <Solver
-      pageTitle="LU decomposition Crout luCrout"
-      pageDescription="LU decomposition Crout luCrout"
-      heading="LU decomposition using Crout's method"
-      currentPage="luCrout"
-      slideData={[{
-        index:0,
-        slideNavTitle: 'Matrix',
-        slideNavData: [{link:'luCrout',name:'LuCrout'},{link:'luDoolittle',name:'LuDoolittle'},{link:'addition',name:'Addition'}]
-      },{
-        index:1,
-        slideNavTitle: 'Advance',
-        slideNavData: [{link:'luCrtout',name:'ALuCrout'},{link:'luDoolittle',name:'LuDoolittle'},{link:'addition',name:'Addition'}]
-      }]}
+      pageTitle={LUCROUT.pageTitle}
+      pageDescription={LUCROUT.pageDescription}
+      heading={LUCROUT.heading}
+      currentPage={LUCROUT.currentPage}
+      slideData={LUCROUT.slideData}
     >
       <div className="flex self-center justify-center">
         <div className="grid text-center">
@@ -144,4 +137,12 @@ export default function LuCrout() {
       {solution && <Solution question={question}>{solution}</Solution>}
     </Solver>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      LUCROUT,
+    },
+  }
 }

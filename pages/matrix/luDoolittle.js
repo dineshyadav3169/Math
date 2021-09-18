@@ -1,12 +1,13 @@
-import Container from '@/components/container/Container';
 import Solution from '@/layouts/Solution';
 import { useState } from 'react';
 import Fetcher from '@/lib/fetcher';
 import { MATRIX_LUDOOLITTLE } from '@/lib/endpoints';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import ErrorMessage from '@/components/ErrorMessage';
+import Solver from '@/layouts/Solver';
+import { LUDOOLITTLE } from '@/data/matrixPages';
 
-export default function LuDoolittle() {
+export default function LuDoolittle({ LUDOOLITTLE }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [solution, setSolution] = useState(false);
@@ -84,28 +85,33 @@ export default function LuDoolittle() {
         };
       }
     } catch (e) {
+      console.log(e);
       setIsError(true);
     }
-    Fetcher(MATRIX_LUDOOLITTLE, POST_DATA)
+    Fetcher(MATRIX_LUDOOLITTLE, {
+      createdAt: new Date().toISOString(),
+      ...POST_DATA
+    })
       .then((res) => {
         setSolution(res);
         setIsLoading(false);
         setIsError(false);
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e);
         setIsError(true);
       });
   };
 
   return (
-    <Container
-      title="LU decomposition Doolittle's method"
-      description="LU decomposition Doolittle's method"
+    <Solver
+      pageTitle={LUDOOLITTLE.pageTitle}
+      pageDescription={LUDOOLITTLE.pageDescription}
+      heading={LUDOOLITTLE.heading}
+      currentPage={LUDOOLITTLE.currentPage}
+      slideData={LUDOOLITTLE.slideData}
     >
-      <h1 className="font-bold text-xl md:text-3xl tracking-tight mb-4 mt-1 text-black">
-      LU decomposition using Doolittle's method
-      </h1>
-      <div className="flex self-center">
+      <div className="flex self-center justify-center">
         <div className="grid text-center">
           <label htmlFor="question">Enter Equations line by line like</label>
           <textarea
@@ -128,13 +134,15 @@ export default function LuDoolittle() {
           </button>
         </div>
       </div>
-      {solution && (
-        <Solution
-          question={question}
-        >
-          {solution}
-        </Solution>
-      )}
-    </Container>
+      {solution && <Solution question={question}>{solution}</Solution>}
+    </Solver>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      LUDOOLITTLE,
+    },
+  }
 }
