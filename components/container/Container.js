@@ -4,14 +4,12 @@ import { useRouter } from 'next/router';
 import Footer from '@/components/Footer';
 import Nav from './Nav';
 import Ad1 from '../ads/Ad1';
-import SideNav from './SideNav';
 import RightNav from './RightNav';
-import { useState } from 'react';
+
 
 export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
-  const [ isSlide, setSlide ] = useState(false);
 
   const meta = {
     title: 'Math - step by step',
@@ -20,7 +18,7 @@ export default function Container(props) {
     type: 'website',
     ...customMeta
   };
-
+  console.log("container called")
   return (
     <div className="bg-white">
       <Head>
@@ -50,11 +48,7 @@ export default function Container(props) {
         )}
       </Head>
 
-      <Nav setSlide={setSlide}/>
-      <SideNav
-        data={meta.slideContent}
-        isSlide={isSlide}
-      />
+      <Nav data={meta.slideContent} />
       <div className="custom-break:ml-52 m-0 pt-11 text-black bg-white ">
         <div className="text-black bg-white before:content-[''] before:table before:clear-both after:content-[''] after:table after:clear-both">
           <main

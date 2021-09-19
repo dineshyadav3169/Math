@@ -12,6 +12,7 @@ export default function Solution(props) {
     isError: false
   });
   const reasonInput = useRef();
+  const [ isTypeSet, setTypeSet ] = useState(false);
 
   const formHandler = (event) => {
     event.preventDefault();
@@ -47,8 +48,7 @@ export default function Solution(props) {
 
   function mathTypeSet(){
     try{
-      MathJax.typeset();
-      console.log("Type setting done")
+      MathJax.typesetPromise().then(setTypeSet(true))
     }catch(e){
       console.log('Could Not set Math type')
       setTimeout(()=>{mathTypeSet()},2000) 

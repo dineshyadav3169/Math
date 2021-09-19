@@ -1,7 +1,9 @@
 import { useRouter } from 'next/router';
+import { useState } from 'react';
+import React from 'react';
 
 /* eslint-disable @next/next/no-html-link-for-pages */
-export default function Nav({ setSlide }) {
+function Nav({data}) {
   const router = useRouter();
   const active = router.route.split('/')[1];
   const NAVLINKS = [
@@ -9,7 +11,13 @@ export default function Nav({ setSlide }) {
     { link: 'algebra', name: 'Algebra' }
   ];
 
+  const routers = useRouter();
+  const actives = routers.route.split('/')[2];
+  const [ isSlide, setSlide ] = useState(false);
+  console.log("***",isSlide)
+
   return (
+    <>
     <nav className="z-20 text-lg bg-gray-800 text-white w-full p-0 fixed top-0">
       <a href="#skip" className="skip-nav">
         Skip to content
@@ -64,5 +72,30 @@ export default function Nav({ setSlide }) {
         </div>
       </div>
     </nav>
+        <div className={`h-full w-52 bg-gray-200 fixed overflow-auto top-11 z-10 custom-break:block ${isSlide? "" : "hidden"}`}>
+        <div className="fixed top-0 pt-11 pb-0 h-full w-56 bg-transparent">
+          <div className="h-full w-full overflow-x-hidden overflow-y-scroll pt-5">
+            {data.map((collection) => (
+              <div key={collection.slideNavTitle}>
+                <h2 className="text-2xl pl-2">{collection.slideNavTitle}</h2>
+                {data[collection.index].slideNavData.map((document) => (
+                  <a
+                    target="_top"
+                    key={document.link}
+                    className={`block p-1 pl-2 hover:bg-gray-100 ${
+                      document.link === actives ? 'bg-green-500' : ''
+                    }`}
+                    href={document.link}
+                  >
+                    {document.name}
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      </>
   );
 }
+export default React.memo(Nav);

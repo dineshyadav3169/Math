@@ -12,6 +12,7 @@ export default function LuCrout({ LUCROUT }) {
   const [isError, setIsError] = useState(false);
   const [solution, setSolution] = useState(false);
   const [question, setQuestion] = useState('2x+5y=16\n3x+y=11');
+  console.log("question : ",question)
 
   const FindAnswerHandler = (event) => {
     event.preventDefault();
