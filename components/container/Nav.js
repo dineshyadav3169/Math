@@ -1,19 +1,21 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 
 /* eslint-disable @next/next/no-html-link-for-pages */
 function Nav({data}) {
+  const [ isSlide, setSlide ] = useState(false);
+  
   const router = useRouter();
-  const active = router.route.split('/')[1];
+  const pathname = router.pathname.split('/')
+
+  const active = pathname[1];
+  const actives = pathname[2];
   const NAVLINKS = [
     { link: 'matrix', name: 'Matrix' },
     { link: 'algebra', name: 'Algebra' }
   ];
 
-  const routers = useRouter();
-  const actives = routers.route.split('/')[2];
-  const [ isSlide, setSlide ] = useState(false);
   console.log("***",isSlide)
 
   return (

@@ -56,7 +56,7 @@ export default function Container(props) {
             className="text-center p-2 custom-break:p-7 pt-4 border-gray-200 border-l-2 border-r-2 custom-break:w-10/12 w-full float-left"
           >
             <Ad1 />
-            <hr />
+            <hr className="w-full border-1 border-gray-200 mt-3" />
             {children}
             <br />
           </main>
