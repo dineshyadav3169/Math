@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import Fetcher from '@/lib/fetcher';
 import { REPORT } from '@/lib/endpoints';
@@ -46,15 +46,17 @@ export default function Solution(props) {
     console.log('Donwload');
   };
 
-  function mathTypeSet(){
-    try{
-      MathJax.typesetPromise().then(setTypeSet(true))
-    }catch(e){
-      console.log('Could Not set Math type')
-      setTimeout(()=>{mathTypeSet()},2000) 
+  useEffect(()=>{
+    function mathTypeSet(){
+      try{
+        MathJax.typesetPromise().then(setTypeSet(true))
+      }catch(e){
+        console.log('Could Not set Math type')
+        setTimeout(()=>{mathTypeSet()},2000) 
+      }
     }
-  }
-  mathTypeSet()
+    mathTypeSet()
+  })
 
   return (
     <>
