@@ -20,6 +20,7 @@ export default function Solver({ pageTitle, pageDescription, heading, slideData,
     <Container 
       title={pageTitle}
       description={pageDescription}
+      hasSlideContent={true}
       slideContent={slideData}
     >
       <h1 className="font-bold text-xl md:text-3xl tracking-tight mb-4 mt-1 text-black">

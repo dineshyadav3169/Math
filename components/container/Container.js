@@ -48,12 +48,12 @@ export default function Container(props) {
         )}
       </Head>
 
-      <Nav data={meta.slideContent} />
+      <Nav data={meta.slideContent} hasData={meta.hasSlideContent} />
       <div className="custom-break:ml-52 m-0 pt-11 text-black bg-white ">
         <div className="text-black bg-white before:content-[''] before:table before:clear-both after:content-[''] after:table after:clear-both">
           <main
             id="skip"
-            className="text-center p-2 custom-break:p-7 pt-4 border-gray-200 border-l-2 border-r-2 custom-break:w-10/12 w-full float-left"
+            className="text-center p-2 custom-break:p-7 pt-4 border-gray-200 border-l border-r custom-break:w-10/12 w-full float-left"
           >
             <Ad1 />
             <hr className="w-full border-1 border-gray-200 mt-3" />

@@ -1,4 +1,4 @@
-import HomeContainer from '@/components/HomeContainer';
+import Container from '@/components/container/Container';
 import Step from '@/components/Step';
 import { useState } from 'react';
 import { MATRIX_TYPES } from '@/data/matrix';
@@ -10,9 +10,10 @@ export default function Matrix() {
   );
 
   return (
-    <HomeContainer
+    <Container
       title="Math Mtrix Problems"
       description="All types of Mtrix Math Problems that can be solved step by step"
+      hasSlideContent={false}
     >
       <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black ">
         Type of Matrix Problems
@@ -93,6 +94,6 @@ export default function Matrix() {
           →
         </span>
       </a>
-    </HomeContainer>
+    </Container>
   );
 }
