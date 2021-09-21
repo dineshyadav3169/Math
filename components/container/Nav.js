@@ -12,15 +12,15 @@ function Nav({ hasData, data }) {
   const active = pathname[1];
   const actives = pathname[2];
   const NAVLINKS = [
-    { link: 'matrix', name: 'Matrix' },
-    { link: 'algebra', name: 'Algebra' }
+    { link: 'matrix', name: 'MATRIX' },
+    { link: 'algebra', name: 'ALEGBRA' }
   ];
 
   console.log('***', isSlide);
 
   return (
     <>
-      <nav className="z-20 text-lg bg-gray-800 text-white w-full p-0 fixed top-0">
+      <nav className="z-20 text-lg bg-gray-900 text-white w-full p-0 fixed top-0 shadow-md">
         <a href="#skip" className="skip-nav">
           Skip to content
         </a>
@@ -28,7 +28,7 @@ function Nav({ hasData, data }) {
           <div className=" overflow-hidden w-full h-11 float-left">
             {hasData && (
               <div
-                className="float-left w-auto py-2 px-3 hover:bg-black custom-break:hidden block"
+                className="float-left w-auto py-2 px-3 hover:bg-black custom-break:hidden block cursor-pointer"
                 onClick={() => {
                   setSlide((prevState) => {
                     return !prevState;
@@ -69,7 +69,7 @@ function Nav({ hasData, data }) {
               <a
                 key={element.link}
                 className={`float-left w-auto py-2 px-3 hover:bg-black ${
-                  element.link === active ? 'bg-green-500' : ''
+                  element.link === active ? 'bg-blue-500' : ''
                 }`}
                 title="some title"
                 href={`/${element.link}`}
@@ -77,6 +77,22 @@ function Nav({ hasData, data }) {
                 {element.name}
               </a>
             ))}
+            <div
+              className="float-right w-auto py-2 px-3 hover:bg-black cursor-pointer"
+              title="search"
+            >
+              <svg
+                className="m-1"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="#fff"
+              >
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+              </svg>
+            </div>
           </div>
         </div>
       </nav>
@@ -90,13 +106,15 @@ function Nav({ hasData, data }) {
             <div className="h-full w-full overflow-x-hidden overflow-y-scroll pt-5">
               {data.map((collection) => (
                 <div key={collection.slideNavTitle}>
-                  <h2 className="text-2xl pl-2 mb-3">{collection.slideNavTitle}</h2>
+                  <h2 className="text-2xl pl-2 mb-3">
+                    {collection.slideNavTitle}
+                  </h2>
                   {data[collection.index].slideNavData.map((document) => (
                     <a
                       target="_top"
                       key={document.link}
-                      className={`block p-1 pl-2 hover:bg-gray-100 mr-3 ${
-                        document.link === actives ? 'bg-green-500' : ''
+                      className={`block p-1 pl-2 hover:bg-gray-100 hover:text-black mr-3 ${
+                        document.link === actives ? 'bg-blue-500 text-white' : ''
                       }`}
                       href={document.link}
                     >
