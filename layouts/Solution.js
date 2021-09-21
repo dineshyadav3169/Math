@@ -51,7 +51,7 @@ export default function Solution(props) {
       try{
         MathJax.typesetPromise().then(setTypeSet(true))
       }catch(e){
-        console.log('Could Not set Math type')
+        console.log('Retrying to Set Math Format')
         setTimeout(()=>{mathTypeSet()},2000) 
       }
     }
