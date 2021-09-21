@@ -90,12 +90,12 @@ function Nav({ hasData, data }) {
             <div className="h-full w-full overflow-x-hidden overflow-y-scroll pt-5">
               {data.map((collection) => (
                 <div key={collection.slideNavTitle}>
-                  <h2 className="text-2xl pl-2">{collection.slideNavTitle}</h2>
+                  <h2 className="text-2xl pl-2 mb-3">{collection.slideNavTitle}</h2>
                   {data[collection.index].slideNavData.map((document) => (
                     <a
                       target="_top"
                       key={document.link}
-                      className={`block p-1 pl-2 hover:bg-gray-100 ${
+                      className={`block p-1 pl-2 hover:bg-gray-100 mr-3 ${
                         document.link === actives ? 'bg-green-500' : ''
                       }`}
                       href={document.link}
