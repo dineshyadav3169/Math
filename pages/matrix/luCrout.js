@@ -124,7 +124,7 @@ export default function LuCrout({ LUCROUT }) {
               setQuestion(e.target.value);
             }}
           ></textarea>
-          {isError && <ErrorMessage>InValid Entry</ErrorMessage>}
+          {isError && <ErrorMessage>Something Went Wrong</ErrorMessage>}
           <button
             type="button"
             aria-label="solve problem"
