@@ -111,13 +111,15 @@ export default function LuCrout({ LUCROUT }) {
       heading={LUCROUT.heading}
       currentPage={LUCROUT.currentPage}
       slideData={LUCROUT.slideData}
+      solution={solution}
+      question={question}
     >
       <div className="flex self-center justify-center">
         <div className="grid text-center w-10/12 lg:w-8/12">
           <label htmlFor="question">Enter Equations line by line like</label>
           <textarea
             id="question"
-            className=" bg-yellow-300 h-28 border-4 border-solid p-2 outline-none rounded focus:border-red-300"
+            className=" bg-yellow-200 h-28 border-4 border-solid p-2 outline-none rounded focus:border-red-300"
             placeholder="Enter Question here"
             value={question}
             onChange={(e) => {
@@ -128,14 +130,13 @@ export default function LuCrout({ LUCROUT }) {
           <button
             type="button"
             aria-label="solve problem"
-            className="py-2 px-2 mx-1 mt-4 text-gray-900 rounded-md sm:py-2 sm:px-2 bg-gray-200 hover:bg-gray-100"
+            className="py-2 px-2 mx-1 mt-4 text-gray-900 font-semibold rounded-md sm:py-2 sm:px-2 bg-gray-200 hover:bg-gray-100"
             onClick={FindAnswerHandler}
           >
             {isLoading ? <LoadingSpinner /> : 'Solve'}
           </button>
         </div>
       </div>
-      {solution && <Solution question={question}>{solution}</Solution>}
     </Solver>
   );
 }

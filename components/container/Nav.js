@@ -113,7 +113,7 @@ function Nav({ hasData, data }) {
                     <a
                       target="_top"
                       key={document.link}
-                      className={`block p-1 pl-2 hover:bg-gray-100 hover:text-black mr-3 ${
+                      className={`block p-1 pl-2 hover:bg-gray-100 rounded hover:text-black mr-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 ${
                         document.link === actives ? 'bg-blue-500 text-white' : ''
                       }`}
                       href={document.link}
