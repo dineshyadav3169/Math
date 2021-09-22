@@ -1,5 +1,5 @@
 import Solution from '@/layouts/Solution';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Fetcher from '@/lib/fetcher';
 import { MATRIX_LUCROUT } from '@/lib/endpoints';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -103,6 +103,10 @@ export default function LuCrout({ LUCROUT }) {
         setIsError(true);
       });
   };
+
+  useEffect(()=>{
+    setQuestion('2x+5y=16\n3x+y=11')
+  },[])
 
   return (
     <Solver
