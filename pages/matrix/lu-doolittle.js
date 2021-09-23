@@ -1,5 +1,4 @@
-import Solution from '@/layouts/Solution';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Fetcher from '@/lib/fetcher';
 import { MATRIX_LUDOOLITTLE } from '@/lib/endpoints';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -12,9 +11,12 @@ export default function LuDoolittle({ LUDOOLITTLE }) {
   const [isError, setIsError] = useState(false);
   const [solution, setSolution] = useState(false);
   const [question, setQuestion] = useState('2x+5y=16\n3x+y=11');
+  console.log('question : ', question);
 
   const FindAnswerHandler = (event) => {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     setIsLoading(true);
 
     let POST_DATA;
@@ -103,38 +105,48 @@ export default function LuDoolittle({ LUDOOLITTLE }) {
       });
   };
 
+  useEffect(() => {
+    setQuestion('2x+5y=16\n3x+y=11');
+  }, []);
+
+  const exampleQuestionHandler = (event) => {
+    setQuestion(
+      LUDOOLITTLE.exampleQuestions[Number(event.target.id.replace('q', ''))].value
+    );
+    FindAnswerHandler();
+  };
+
   return (
     <Solver
-      pageTitle={LUDOOLITTLE.pageTitle}
-      pageDescription={LUDOOLITTLE.pageDescription}
-      heading={LUDOOLITTLE.heading}
-      currentPage={LUDOOLITTLE.currentPage}
-      slideData={LUDOOLITTLE.slideData}
+      data={LUDOOLITTLE}
+      solution={solution}
+      question={question}
+      exampleQuestionHandler={exampleQuestionHandler}
     >
       <div className="flex self-center justify-center">
-        <div className="grid text-center">
+        <div className="grid text-center w-10/12 lg:w-8/12">
           <label htmlFor="question">Enter Equations line by line like</label>
           <textarea
             id="question"
-            className=" bg-yellow-300 border-4 border-solid p-2 outline-none rounded focus:border-red-300"
+            className=" bg-yellow-200 h-28 border-4 border-solid p-2 outline-none rounded focus:border-red-300"
             placeholder="Enter Question here"
             value={question}
             onChange={(e) => {
               setQuestion(e.target.value);
             }}
           ></textarea>
-          {isError && <ErrorMessage>InValid Entry</ErrorMessage>}
+          {isError && <ErrorMessage>Something Went Wrong</ErrorMessage>}
           <button
             type="button"
             aria-label="solve problem"
-            className="py-2 px-2 mx-1 mt-4 text-gray-900 rounded-md sm:py-2 sm:px-2 bg-gray-200 hover:bg-gray-100"
+            className="py-2 px-2 mx-1 mt-4 text-gray-900 font-semibold rounded-md sm:py-2 sm:px-2 bg-gray-200 hover:bg-gray-100"
+            style={{textAlign:"-webkit-center"}}
             onClick={FindAnswerHandler}
           >
             {isLoading ? <LoadingSpinner /> : 'Solve'}
           </button>
         </div>
       </div>
-      {solution && <Solution question={question}>{solution}</Solution>}
     </Solver>
   );
 }
@@ -142,7 +154,7 @@ export default function LuDoolittle({ LUDOOLITTLE }) {
 export async function getStaticProps() {
   return {
     props: {
-      LUDOOLITTLE,
-    },
-  }
+      LUDOOLITTLE
+    }
+  };
 }
