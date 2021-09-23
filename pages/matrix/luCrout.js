@@ -12,10 +12,12 @@ export default function LuCrout({ LUCROUT }) {
   const [isError, setIsError] = useState(false);
   const [solution, setSolution] = useState(false);
   const [question, setQuestion] = useState('2x+5y=16\n3x+y=11');
-  console.log("question : ",question)
+  console.log('question : ', question);
 
   const FindAnswerHandler = (event) => {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     setIsLoading(true);
 
     let POST_DATA;
@@ -104,19 +106,23 @@ export default function LuCrout({ LUCROUT }) {
       });
   };
 
-  useEffect(()=>{
-    setQuestion('2x+5y=16\n3x+y=11')
-  },[])
+  useEffect(() => {
+    setQuestion('2x+5y=16\n3x+y=11');
+  }, []);
+
+  const exampleQuestionHandler = (event) => {
+    setQuestion(
+      LUCROUT.exampleQuestions[Number(event.target.id.replace('q', ''))].value
+    );
+    FindAnswerHandler();
+  };
 
   return (
     <Solver
-      pageTitle={LUCROUT.pageTitle}
-      pageDescription={LUCROUT.pageDescription}
-      heading={LUCROUT.heading}
-      currentPage={LUCROUT.currentPage}
-      slideData={LUCROUT.slideData}
+      data={LUCROUT}
       solution={solution}
       question={question}
+      exampleQuestionHandler={exampleQuestionHandler}
     >
       <div className="flex self-center justify-center">
         <div className="grid text-center w-10/12 lg:w-8/12">
@@ -135,6 +141,7 @@ export default function LuCrout({ LUCROUT }) {
             type="button"
             aria-label="solve problem"
             className="py-2 px-2 mx-1 mt-4 text-gray-900 font-semibold rounded-md sm:py-2 sm:px-2 bg-gray-200 hover:bg-gray-100"
+            style={{textAlign:"-webkit-center"}}
             onClick={FindAnswerHandler}
           >
             {isLoading ? <LoadingSpinner /> : 'Solve'}
@@ -148,7 +155,7 @@ export default function LuCrout({ LUCROUT }) {
 export async function getStaticProps() {
   return {
     props: {
-      LUCROUT,
-    },
-  }
+      LUCROUT
+    }
+  };
 }

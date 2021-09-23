@@ -2,13 +2,12 @@ import Container from '@/components/container/Container';
 import PrevNext from '@/components/PrevNext';
 import { useEffect, useRef, useState } from 'react';
 import Solution from './Solution';
+import ExampleCard from '@/components/ExampleCard';
+import ShareCard from '@/components/ShareCard';
 
 export default function Solver({
-  pageTitle,
-  pageDescription,
-  heading,
-  slideData,
-  currentPage,
+  data,
+  exampleQuestionHandler,
   solution,
   question,
   children
@@ -17,13 +16,13 @@ export default function Solver({
   const dummyScrollView = useRef();
 
   let linkArray = [];
-  slideData.map((t) => {
+  data.slideData.map((t) => {
     t.slideNavData.map((u) => {
       linkArray.push(u.link);
     });
   });
 
-  const i = linkArray.indexOf(currentPage);
+  const i = linkArray.indexOf(data.currentPage);
   const previousLink = linkArray[i == 0 ? linkArray.length : i - 1] || false;
   const nextLink =
     linkArray[i == linkArray.length - 1 ? linkArray.length : i + 1] || false;
@@ -37,91 +36,89 @@ export default function Solver({
 
   return (
     <Container
-      title={pageTitle}
-      description={pageDescription}
+      title={data.pageTitle}
+      description={data.pageDescription}
       hasSlideContent={true}
-      slideContent={slideData}
+      slideContent={data.slideData}
     >
       <h1 className="font-bold text-xl md:text-3xl tracking-tight mb-4 mt-1 text-black">
-        {heading}
+        {data.heading}
       </h1>
       <PrevNext prevoiusLink={previousLink} nextLink={nextLink} />
       {children}
 
-      <div role="tablist" className={`mt-10 text-left sm:px-12`}>
-        <ul ref={dummyScrollView} className="list-none w-full">
-          <li className="inline-block w-6/12">
-            <div
-              id="t1"
-              tabIndex="0"
-              role="tab"
-              aria-selected="false"
-              aria-controls="t1-panel"
-              className="cursor-pointer text-center"
-              onClick={() => {
-                setcurrentTab('solution');
-              }}
-            >
-              <div
-                className={`border-b-2 ${
-                  currentTab === 'solution'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-gray-200'
-                } relative py-3 px-5 transition duration-300 ease-in-out hover:bg-blue-50`}
-              >
-                <span className="">Solution</span>
-              </div>
-            </div>
-          </li>
-          <li className="inline-block w-6/12">
-            <div
-              id="t2"
-              tabIndex="-1"
-              role="tab"
-              aria-selected="true"
-              aria-controls="t2-panel"
-              className="cursor-pointer text-center"
-              onClick={() => {
-                setcurrentTab('example');
-              }}
-            >
-              <div
-                className={`border-b-2 ${
-                  currentTab === 'example'
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-gray-200'
-                } relative py-3 px-5 transition duration-300 ease-in-out hover:bg-blue-50`}
-              >
-                <span className="">Examples</span>
-              </div>
-            </div>
-          </li>
-        </ul>
+      <div
+        ref={dummyScrollView}
+        role="tablist"
+        className={`mt-10 text-left sm:px-12 w-full`}
+      >
+        <button
+          className={`border-b-2 ${
+            currentTab === 'solution'
+              ? 'border-blue-600 text-blue-600'
+              : 'border-gray-200'
+          } relative py-3 px-5 transition duration-300 ease-in-out hover:bg-blue-50 w-6/12 cursor-pointer`}
+          role="tab"
+          id="t1"
+          aria-selected={currentTab === 'solution'? "true": "false"}
+          tabIndex="-1"
+          aria-controls="tab-1-pane"
+          onClick={() => {
+            setcurrentTab('solution');
+          }}
+          active={currentTab === 'solution'? "true": "false"}
+        >
+          Solution
+        </button>
+        <button
+          className={`border-b-2 ${
+            currentTab === 'example'
+              ? 'border-blue-600 text-blue-600'
+              : 'border-gray-200'
+          } relative py-3 px-5 transition duration-300 ease-in-out hover:bg-blue-50 w-6/12 cursor-pointer`}
+          role="tab"
+          id="t2"
+          aria-selected={currentTab === 'example'? "true": "false"}
+          aria-controls="tab-2-pane"
+          onClick={() => {
+            setcurrentTab('example');
+          }}
+          active={currentTab === 'example'? "true": "false"}
+        >
+          Examples
+        </button>
       </div>
 
-      {currentTab === 'example' ? (
+      {currentTab === 'solution' ? (
         <div
-          id="t2-panel"
-          role="tabpanel"
-          aria-hidden="false"
-          aria-describedby="t2"
-        >
-          These are examples
-        </div>
-      ) : (
-        <div
-          id="t1-panel"
+          id="tab-1-pane"
           role="tabpanel"
           aria-hidden="true"
           aria-describedby="t1"
         >
-          {solution ? (
+          {solution !== false ? (
             <Solution question={question}>{solution}</Solution>
           ) : (
             <p>Your solution will appear here.</p>
           )}
         </div>
+      ) : (
+        <div
+          id="tab-2-pane"
+          role="tabpanel"
+          aria-hidden="false"
+          aria-describedby="t2"
+        >
+          <ExampleCard
+            exampleQuestions={data.exampleQuestions}
+            exampleQuestionHandler={exampleQuestionHandler}
+          />
+        </div>
       )}
+      <ShareCard
+        currentPage={data.currentPage}
+        subDirectory={data.subDirectory}
+      />
     </Container>
   );
 }

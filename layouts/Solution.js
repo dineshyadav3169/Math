@@ -66,7 +66,7 @@ export default function Solution(props) {
           Solution
         </h2> */}
       </div>
-      <div className="mt-2 text-left">
+      <div className="mt-2 text-left overflow-auto">
         <div
           dangerouslySetInnerHTML={{
             __html: props.children
