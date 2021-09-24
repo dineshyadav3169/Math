@@ -2,15 +2,15 @@ export const LUCROUT = {
   pageTitle: 'LU decomposition Crout luCrout',
   pageDescription: 'LU decomposition Crout luCrout',
   heading: "LU decomposition using Crout's method",
-  currentPage: 'lu-crout',
+  currentPage: 'lu-decomposition-crout',
   subDirectory: 'matrix',
   slideData: [
     {
       index: 0,
       slideNavTitle: 'Matrix',
       slideNavData: [
-        { link: 'lu-crout', name: 'LuCrout' },
-        { link: 'lu-doolittle', name: 'LuDoolittle' },
+        { link: 'lu-decomposition-crout', name: 'LuCrout' },
+        { link: 'lu-decomposition-doolittle', name: 'LuDoolittle' },
         { link: 'addition', name: 'Addition' }
       ]
     }
@@ -35,14 +35,14 @@ export const LUDOOLITTLE = {
   pageDescription: 'LU decomposition Doolittle luCrout',
   heading: "LU decomposition using Doolittle's method",
   subDirectory: 'matrix',
-  currentPage: 'lu-doolittle',
+  currentPage: 'lu-decomposition-doolittle',
   slideData: [
     {
       index: 0,
       slideNavTitle: 'Matrix',
       slideNavData: [
-        { link: 'lu-crout', name: 'LuCrout' },
-        { link: 'lu-doolittle', name: 'LuDoolittle' },
+        { link: 'lu-decomposition-crout', name: 'LuCrout' },
+        { link: 'lu-decomposition-doolittle', name: 'LuDoolittle' },
         { link: 'addition', name: 'Addition' }
       ]
     }

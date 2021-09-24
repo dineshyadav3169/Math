@@ -73,7 +73,7 @@ export default function Solution(props) {
           }}>  
         </div>
         <hr className="w-full border-1 border-gray-200 my-8" />
-        <div className="flex items-center mx-auto my-0 text-gray-900">
+        <div className="flex items-center mx-auto ml-2 my-0 text-gray-900">
           <div>
             <button
               className="py-2 px-2 mx-1 rounded-md text-white bg-red-600 sm:py-2 sm:px-2 hover:bg-red-500"

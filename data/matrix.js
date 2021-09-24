@@ -2,20 +2,20 @@ export const MATRIX_TYPES = [
   {
     type: 'simple',
     number: 1,
-    slug: 'Addition',
+    slug: 'addition',
     title: 'Find Addition of two matrix'
   },
   { type: 'simple', number: 2, slug: 'Adjoint', title: 'Find Adjoint' },
   {
     type: 'simple',
     number: 3,
-    slug: 'Cofactor',
+    slug: 'cofactor',
     title: 'Find Cofactor of Matrix'
   },
   {
     type: 'simple',
     number: 4,
-    slug: 'Determinant',
+    slug: 'determinant',
     title: 'Find Determinant of Matrix'
   },
   {
@@ -34,13 +34,13 @@ export const MATRIX_TYPES = [
   {
     type: 'simple',
     number: 8,
-    slug: 'Power',
+    slug: 'power',
     title: 'Find Power of  Matrix'
   },
   {
     type: 'simple',
     number: 9,
-    slug: 'Substraction',
+    slug: 'substraction',
     title: 'Find Substraction of Matrix'
   },
   {
@@ -52,7 +52,7 @@ export const MATRIX_TYPES = [
   {
     type: 'simple',
     number: 11,
-    slug: 'Transpose',
+    slug: 'transpose',
     title: 'Find Transpose of Matrix'
   },
   {
