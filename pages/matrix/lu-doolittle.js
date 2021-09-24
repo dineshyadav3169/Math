@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Fetcher from '@/lib/fetcher';
 import { MATRIX_LUDOOLITTLE } from '@/lib/endpoints';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -9,112 +9,49 @@ import { LUDOOLITTLE } from '@/data/matrixPages';
 export default function LuDoolittle({ LUDOOLITTLE }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [ errorMessage, setErrorMessage ] = useState("Something Went Wrong")
   const [solution, setSolution] = useState(false);
   const [question, setQuestion] = useState('2x+5y=16\n3x+y=11');
-  console.log('question : ', question);
+  const fixtextarea = useRef();
 
   const FindAnswerHandler = (event) => {
-    if (event) {
-      event.preventDefault();
-    }
+    event.preventDefault();
     setIsLoading(true);
 
-    let POST_DATA;
-    try {
-      let equationsLength = question.split('\n').length;
-      if (equationsLength === 3) {
-        if (question.split('\n')[2] === '') {
-          equationsLength--;
-        }
-      }
-      if (equationsLength === 2) {
-        let equations = question
-          .replaceAll('x+', ',')
-          .replaceAll('y=', ',=')
-          .split('\n');
-        POST_DATA = {
-          A: [
-            equations[0]
-              .split(',=')[0]
-              .split(',')
-              .map(function (item) {
-                return parseInt(item, 10) || 1;
-              }),
-            equations[1]
-              .split(',=')[0]
-              .split(',')
-              .map(function (item) {
-                return parseInt(item, 10) || 1;
-              })
-          ],
-          B: [
-            Number(equations[0].split(',=')[1].split(',')[0]),
-            Number(equations[1].split(',=')[1].split(',')[0])
-          ]
-        };
-      } else {
-        let equations = question
-          .replaceAll('x+', ',')
-          .replaceAll('y+', ',')
-          .replaceAll('z=', ',=')
-          .split('\n');
-        POST_DATA = {
-          A: [
-            equations[0]
-              .split(',=')[0]
-              .split(',')
-              .map(function (item) {
-                return parseInt(item, 10) || 1;
-              }),
-            equations[1]
-              .split(',=')[0]
-              .split(',')
-              .map(function (item) {
-                return parseInt(item, 10) || 1;
-              }),
-            equations[2]
-              .split(',=')[0]
-              .split(',')
-              .map(function (item) {
-                return parseInt(item, 10) || 1;
-              })
-          ],
-          B: [
-            Number(equations[0].split(',=')[1].split(',')[0]),
-            Number(equations[1].split(',=')[1].split(',')[0]),
-            Number(equations[2].split(',=')[1].split(',')[0])
-          ]
-        };
-      }
-    } catch (e) {
-      console.log(e);
-      setIsError(true);
-    }
-    Fetcher(MATRIX_LUDOOLITTLE, {
-      createdAt: new Date().toISOString(),
-      ...POST_DATA
-    })
-      .then((res) => {
-        setSolution(res);
-        setIsLoading(false);
-        setIsError(false);
+    let POST_QUESTION = question;
+    POST_QUESTION = POST_QUESTION.trim();
+    if (
+      POST_QUESTION.split('=').length === 3 ||
+      POST_QUESTION.split('=').length === 4
+    ) {
+      Fetcher(MATRIX_LUDOOLITTLE, {
+        createdAt: new Date().toISOString(),
+        question: POST_QUESTION
       })
-      .catch((e) => {
-        console.log(e);
-        setIsError(true);
-      });
+        .then((res) => {
+          setSolution(res);
+          setIsLoading(false);
+          setIsError(false);
+        })
+        .catch((e) => {
+          setIsError(true);
+          setIsLoading(false);
+        });
+    }else{
+      setIsError(true);
+      setIsLoading(false);
+      setErrorMessage("Question Not in Correct Format");
+    }
   };
 
-  const fixtextarea = useRef()
   useEffect(() => {
-    fixtextarea.current.value='2x+5y=16\n3x+y=11'
+    fixtextarea.current.value = '2x+5y=16\n3x+y=11';
   }, []);
 
   const exampleQuestionHandler = (event) => {
     setQuestion(
       LUDOOLITTLE.exampleQuestions[Number(event.target.id.replace('q', ''))].value
     );
-    FindAnswerHandler();
   };
 
   return (
@@ -125,7 +62,7 @@ export default function LuDoolittle({ LUDOOLITTLE }) {
       exampleQuestionHandler={exampleQuestionHandler}
     >
       <div className="flex self-center justify-center">
-        <div className="grid text-center w-10/12 lg:w-8/12">
+        <form className="grid text-center w-10/12 lg:w-8/12">
           <label htmlFor="question">Enter Equations line by line like</label>
           <textarea
             id="question"
@@ -133,21 +70,19 @@ export default function LuDoolittle({ LUDOOLITTLE }) {
             placeholder="Enter Question here"
             value={question}
             ref={fixtextarea}
-            onChange={(e) => {
-              setQuestion(e.target.value);
-            }}
+            onChange={(event)=>{setQuestion(event.target.value)}}
           ></textarea>
-          {isError && <ErrorMessage>Something Went Wrong</ErrorMessage>}
+          {isError && <ErrorMessage>{errorMessage}</ErrorMessage>}
           <button
             type="button"
             aria-label="solve problem"
             className="py-2 px-2 mx-1 mt-4 text-gray-900 font-semibold rounded-md sm:py-2 sm:px-2 bg-gray-200 hover:bg-gray-100"
-            style={{textAlign:"-webkit-center"}}
+            style={{ textAlign: '-webkit-center' }}
             onClick={FindAnswerHandler}
           >
             {isLoading ? <LoadingSpinner /> : 'Solve'}
           </button>
-        </div>
+        </form>
       </div>
     </Solver>
   );
