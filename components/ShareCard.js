@@ -1,5 +1,5 @@
 export default function ShareCard({ currentPage, subDirectory }) {
-  const DOMAIN = process.env.DOMAIN_NAME;
+  const DOMAIN = process.env.DOMAIN_NAME || 'https://some-website-name.io';
   const Description = ""
   return (
     <div className=" text-left m-4">
@@ -30,7 +30,7 @@ export default function ShareCard({ currentPage, subDirectory }) {
           rel="noopener noreferrer"
           className="p-4 rounded-full border hover:shadow-md cursor-pointer"
           target="_blank"
-          href={`https://twitter.com/intent/tweet?text=${Description}?&url=${DOMAIN}&via=manoj`}
+          href={`https://twitter.com/intent/tweet?text=${Description}?&url=${DOMAIN}&via=_thedineshyadav`}
         >
           <svg
             title="Twitter"

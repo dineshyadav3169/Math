@@ -105,8 +105,9 @@ export default function LuDoolittle({ LUDOOLITTLE }) {
       });
   };
 
+  const fixtextarea = useRef()
   useEffect(() => {
-    setQuestion('2x+5y=16\n3x+y=11');
+    fixtextarea.current.value='2x+5y=16\n3x+y=11'
   }, []);
 
   const exampleQuestionHandler = (event) => {
@@ -131,6 +132,7 @@ export default function LuDoolittle({ LUDOOLITTLE }) {
             className=" bg-yellow-200 h-28 border-4 border-solid p-2 outline-none rounded focus:border-red-300"
             placeholder="Enter Question here"
             value={question}
+            ref={fixtextarea}
             onChange={(e) => {
               setQuestion(e.target.value);
             }}
