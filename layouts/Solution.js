@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import Fetcher from '@/lib/fetcher';
 import { REPORT } from '@/lib/endpoints';
-import { BASE_URI } from '@/lib/base'
+import { BASE_URI } from '@/lib/base';
+import saveAs from '@/utils/saveAs';
 
 export default function Solution(props) {
   const [form, setForm] = useState({
@@ -12,7 +13,8 @@ export default function Solution(props) {
     isError: false
   });
   const reasonInput = useRef();
-  const [ isTypeSet, setTypeSet ] = useState(false);
+  const [isTypeSet, setTypeSet] = useState(false);
+  const [ isDonload, setDownload ] = useState(false);
 
   const formHandler = (event) => {
     event.preventDefault();
@@ -42,21 +44,43 @@ export default function Solution(props) {
     setForm({ popup: !form.popup });
   };
   const downloadHnadler = () => {
-    // Send solution response html to api
-    console.log('Donwload');
+    setDownload(true);
+    var myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'text/plain');
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: props.children,
+      redirect: 'follow'
+    };
+
+    fetch('https://create-pdf.vercel.app', requestOptions)
+    .then((res) => {
+      return res
+        .arrayBuffer()
+        .then((res) => {
+          const blob = new Blob([res], { type: 'application/pdf' });
+          saveAs(blob, 'MathSolution.pdf');
+          setDownload(false);
+        })
+        .catch((e) => alert("Download Failed"));
+    });
   };
 
-  useEffect(()=>{
-    function mathTypeSet(){
-      try{
-        MathJax.typesetPromise().then(setTypeSet(true))
-      }catch(e){
-        console.log('Retrying to Set Math Format')
-        setTimeout(()=>{mathTypeSet()},2000) 
+  useEffect(() => {
+    function mathTypeSet() {
+      try {
+        MathJax.typesetPromise().then(setTypeSet(true));
+      } catch (e) {
+        console.log('Retrying to Set Math Format');
+        setTimeout(() => {
+          mathTypeSet();
+        }, 2000);
       }
     }
-    mathTypeSet()
-  })
+    mathTypeSet();
+  });
 
   return (
     <>
@@ -70,8 +94,8 @@ export default function Solution(props) {
         <div
           dangerouslySetInnerHTML={{
             __html: props.children
-          }}>  
-        </div>
+          }}
+        ></div>
         <hr className="w-full border-1 border-gray-200 my-8" />
         <div className="flex items-center mx-auto ml-2 my-0 text-gray-900">
           <div>
@@ -147,10 +171,10 @@ export default function Solution(props) {
             <button
               type="button"
               aria-label="Download Problem Solution"
-              className="py-2 px-2 mx-1 text-gray-900 rounded-md sm:py-2 sm:px-2 bg-gray-200 hover:bg-gray-100"
+              className={` ${isDonload && 'downloadBtn'} py-2 px-2 mx-1 text-gray-900 rounded-md sm:py-2 sm:px-2 bg-gray-200 hover:bg-gray-100`}
               onClick={downloadHnadler}
             >
-              Download PDF
+              {isDonload ? <LoadingSpinner/>: 'Download PDF'}
             </button>
           </div>
         </div>

@@ -2,7 +2,7 @@ import db from '@/lib/db';
 import runMiddleware from '@/utils/middleware';
 
 export default async function reportHandler(req, res) {
-  await runMiddleware(req, res);
+  //await runMiddleware(req, res);
 
   const { method, body } = req;
 
