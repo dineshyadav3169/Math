@@ -26,7 +26,13 @@ export const LUCROUT = {
       id: 'q1',
       value: '9x+9y=16\n3x+y=11',
       question: "Q.2 9x+9y=16, 3x+y=11"
-    }
+    },
+    {
+      id: 'q2',
+      value: '2x+y+z=5\n3x+5y+2z=15\n2x+y+4z=8',
+      question: "Q.2 2x+y+z=5 3x+5y+2z=15 2x+y+4z=8"
+    },
+    
   ]
 };
 
@@ -58,6 +64,11 @@ export const LUDOOLITTLE = {
       id: 'q1',
       value: '9x+9y=16\n3x+y=11',
       question: "Q.2 9x+9y=16, 3x+y=11"
+    },
+    {
+      id: 'q2',
+      value: '2x+y+z=5\n3x+5y+2z=15\n2x+y+4z=8',
+      question: "Q.2 2x+y+z=5 3x+5y+2z=15 2x+y+4z=8"
     }
   ]
 };

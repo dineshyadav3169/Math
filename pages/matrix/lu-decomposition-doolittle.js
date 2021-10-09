@@ -6,7 +6,7 @@ import ErrorMessage from '@/components/ErrorMessage';
 import Solver from '@/layouts/Solver';
 import { LUDOOLITTLE } from '@/data/matrixPages';
 
-export default function LuDoolittle({ LUDOOLITTLE }) {
+export default function LuCrout({ LUDOOLITTLE }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [ errorMessage, setErrorMessage ] = useState("Something Went Wrong")
