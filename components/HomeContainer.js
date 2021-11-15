@@ -53,12 +53,6 @@ export default function HomeContainer(props) {
             Home
           </a>
           <a
-            href="/solution"
-            className="py-2 px-2 mx-1 text-gray-900 rounded-md sm:py-2 sm:px-2 hover:bg-gray-100"
-          >
-            Solution's
-          </a>
-          <a
             href="/contact"
             className="py-2 px-2 mx-1 text-gray-900 rounded-md sm:py-2 sm:px-2 hover:bg-gray-100"
           >

@@ -25,43 +25,27 @@ export default function Footer() {
             About
           </a>
 
-          <a
-            href="/newsletter"
-            className="text-gray-500 hover:text-gray-600 transition"
-          >
-            Newsletter
-          </a>
         </div>
         <div className="flex flex-col space-y-4">
           <ExternalLink href="https://twitter.com/something">
             Twitter
           </ExternalLink>
-          <ExternalLink href="https://github.com/null">GitHub</ExternalLink>
+          <ExternalLink href="https://pinterset.com">
+            Pinterset
+          </ExternalLink>
         </div>
         <div className="flex flex-col space-y-4">
-          <a
-            href="/uses"
+        <a
+            href="/terms"
             className="text-gray-500 hover:text-gray-600 transition"
           >
-            Uses
+            Terms and Conditions
           </a>
           <a
-            href="/guestbook"
+            href="/privacy-policy"
             className="text-gray-500 hover:text-gray-600 transition"
           >
-            Guestbook
-          </a>
-          <a
-            href="/snippets"
-            className="text-gray-500 hover:text-gray-600 transition"
-          >
-            Snippets
-          </a>
-          <a
-            href="/tweets"
-            className="text-gray-500 hover:text-gray-600 transition"
-          >
-            Tweets
+            Privacy Policy
           </a>
         </div>
       </div>
