@@ -54,7 +54,11 @@ export default function Contact() {
   };
   return (
     <HomeContainer title="Contact" description="">
-      <form className="w-full max-w-lg" onSubmit={conatctFormHandler}>
+      <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black ">
+        Contact Form
+      </h1>
+      <hr className="w-full border-1 border-gray-200 mb-3" />
+      <form className="w-full max-w-lg self-center" onSubmit={conatctFormHandler}>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
@@ -137,6 +141,10 @@ export default function Contact() {
           )}
         </div>
       </form>
+      <br />
+      <hr className="w-full border-1 border-gray-200 mb-3" />
+      <p>Email: <a className="text-blue-500 cursor-pointer hover:underline" href="mailto:support@math-node-develop-app.netlify.app" >support@math-node-develop-app.netlify.app</a></p>
+      
     </HomeContainer>
   );
 }
