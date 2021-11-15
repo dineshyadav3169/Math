@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Solution from './Solution';
 import ExampleCard from '@/components/ExampleCard';
 import ShareCard from '@/components/ShareCard';
+import FormulaCard from '@/components/FormulaCard';
 
 export default function Solver({
   data,
@@ -112,6 +113,9 @@ export default function Solver({
           <ExampleCard
             exampleQuestions={data.exampleQuestions}
             exampleQuestionHandler={exampleQuestionHandler}
+          />
+          <FormulaCard 
+            formulaList={data.formula}
           />
         </div>
       )}

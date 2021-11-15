@@ -46,6 +46,17 @@ export default function LuCrout({ LUCROUT }) {
 
   useEffect(() => {
     fixtextarea.current.value = '2x+5y=16\n3x+y=11';
+    function mathTypeSet() {
+      try {
+        MathJax.typesetPromise();
+      } catch (e) {
+        console.log('Retrying to Set Math Format');
+        setTimeout(() => {
+          mathTypeSet();
+        }, 2000);
+      }
+    }
+    mathTypeSet();
   }, []);
 
   const exampleQuestionHandler = (event) => {
