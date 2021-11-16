@@ -80,5 +80,15 @@ export const LUDOOLITTLE = {
       value: '2x+y+z=5\n3x+5y+2z=15\n2x+y+4z=8',
       question: "Q.2 2x+y+z=5 3x+5y+2z=15 2x+y+4z=8"
     }
+  ],
+  formula: [
+    {
+      id: 'f0',
+      formula: 'l_(21)=[[1,2],[3,4]]'
+    },
+    {
+      id: 'f1',
+      formula: 'L(U) = P(B)'
+    }
   ]
 };
