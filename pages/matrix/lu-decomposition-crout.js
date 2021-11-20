@@ -13,6 +13,7 @@ export default function LuCrout({ LUCROUT }) {
   const [solution, setSolution] = useState(false);
   const [question, setQuestion] = useState('2x+5y=16\n3x+y=11');
   const fixtextarea = useRef();
+  const dummyScrollUP = useRef();
 
   const FindAnswerHandler = (event) => {
     event.preventDefault();
@@ -63,6 +64,8 @@ export default function LuCrout({ LUCROUT }) {
     setQuestion(
       LUCROUT.exampleQuestions[Number(event.target.id.replace('q', ''))].value
     );
+    dummyScrollUP.current.scrollIntoView({ behavior: 'smooth' });
+    fixtextarea.current.focus();
   };
 
   return (

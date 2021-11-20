@@ -13,6 +13,7 @@ export default function LuCrout({ LUDOOLITTLE }) {
   const [solution, setSolution] = useState(false);
   const [question, setQuestion] = useState('2x+5y=16\n3x+y=11');
   const fixtextarea = useRef();
+  const dummyScrollUP = useRef();
 
   const FindAnswerHandler = (event) => {
     event.preventDefault();
@@ -59,10 +60,13 @@ export default function LuCrout({ LUDOOLITTLE }) {
     mathTypeSet();
   }, []);
 
+
   const exampleQuestionHandler = (event) => {
     setQuestion(
       LUDOOLITTLE.exampleQuestions[Number(event.target.id.replace('q', ''))].value
     );
+    dummyScrollUP.current.scrollIntoView({ behavior: 'smooth' });
+    fixtextarea.current.focus();
   };
 
   return (
@@ -72,7 +76,7 @@ export default function LuCrout({ LUDOOLITTLE }) {
       question={question}
       exampleQuestionHandler={exampleQuestionHandler}
     >
-      <div className="flex self-center justify-center">
+      <div ref={dummyScrollUP} className="flex self-center justify-center">
         <form className="grid text-center w-10/12 lg:w-8/12">
           <label htmlFor="question">Enter Equations line by line like</label>
           <textarea
