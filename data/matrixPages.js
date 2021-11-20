@@ -1,3 +1,10 @@
+const mainSlideNavData =  [
+  { link: 'lu-decomposition-crout', name: 'LuCrout' },
+  { link: 'lu-decomposition-doolittle', name: 'LuDoolittle' },
+  { link: 'addition', name: 'Addition' },
+  { link: 'substraction', name: 'Substraction' }
+]
+
 export const LUCROUT = {
   pageTitle: 'LU decomposition Crout luCrout',
   pageDescription: 'LU decomposition Crout luCrout',
@@ -8,11 +15,7 @@ export const LUCROUT = {
     {
       index: 0,
       slideNavTitle: 'Matrix',
-      slideNavData: [
-        { link: 'lu-decomposition-crout', name: 'LuCrout' },
-        { link: 'lu-decomposition-doolittle', name: 'LuDoolittle' },
-        { link: 'addition', name: 'Addition' }
-      ]
+      slideNavData: mainSlideNavData
     }
   ],
   exampleQuestions: [
@@ -56,11 +59,7 @@ export const LUDOOLITTLE = {
     {
       index: 0,
       slideNavTitle: 'Matrix',
-      slideNavData: [
-        { link: 'lu-decomposition-crout', name: 'LuCrout' },
-        { link: 'lu-decomposition-doolittle', name: 'LuDoolittle' },
-        { link: 'addition', name: 'Addition' }
-      ]
+      slideNavData: mainSlideNavData
     }
   ],
   exampleQuestions: [
@@ -103,11 +102,7 @@ export const ADDITION = {
     {
       index: 0,
       slideNavTitle: 'Matrix',
-      slideNavData: [
-        { link: 'lu-decomposition-doolittle', name: 'LuDoolittle' },
-        { link: 'addition', name: 'Addition' },
-        { link: 'substraction', name: 'Substraction' }
-      ]
+      slideNavData: mainSlideNavData
     }
   ],
   exampleQuestions: [

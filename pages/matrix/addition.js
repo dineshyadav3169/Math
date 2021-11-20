@@ -114,7 +114,7 @@ export default function ADDITIONJS({ ADDITION }) {
             <div className="flex justify-center">
               <div>{matrix}</div>
               <div className="flex h-auto">
-                <div className="m-auto">`xx`</div>
+                <div className="m-auto">X</div>
               </div>
               <div>{matrix2}</div>
             </div>
