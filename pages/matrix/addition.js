@@ -12,26 +12,30 @@ export default function ADDITIONJS({ ADDITION }) {
   const [errorMessage, setErrorMessage] = useState('Something Went Wrong');
   const [solution, setSolution] = useState(false);
   const [question, setQuestion] = useState('2x+5y=16\n3x+y=11');
-  const fixtextarea = useRef();
   const dummyScrollUP = useRef();
 
   const [matrixGrid, setMatrixGrid] = useState(2);
-  var matrixDict = {};
-  var matrixDict2 = {};
 
   const FindAnswerHandler = (event) => {
     event.preventDefault();
     setIsLoading(true);
 
     var matrixNumbers1 = [];
-    Object.entries(matrixDict)
-      .sort(([a], [b]) => a - b)
-      .filter((a, b) => matrixNumbers1.push(Number(a[1])));
-
     var matrixNumbers2 = [];
-    Object.entries(matrixDict2)
-      .sort(([a], [b]) => a - b)
-      .filter((a, b) => matrixNumbers2.push(Number(a[1])));
+    for(var i=0;i<4;i++){
+        for(var j=0;j<4;j++){
+          if(document.getElementById(i+''+j)!==null){
+            matrixNumbers1.push(Number(document.getElementById(i+''+j).value))
+          }
+        }
+    }
+    for(var i=0;i<4;i++){
+        for(var j=0;j<4;j++){
+          if(document.getElementById('2'+i+''+j)!==null){
+            matrixNumbers2.push(Number(document.getElementById('2'+i+''+j).value))
+          }
+        }
+    }
 
     var POST_QUESTION = {
       "A":matrixNumbers1,
@@ -49,7 +53,7 @@ export default function ADDITIONJS({ ADDITION }) {
       .catch((e) => {
         setIsError(true);
         setIsLoading(false);
-      });
+      });    
   };
 
   useEffect(() => {
@@ -66,15 +70,13 @@ export default function ADDITIONJS({ ADDITION }) {
     mathTypeSet();
   }, []);
 
+
   const matrix = Array.apply(null, Array(matrixGrid)).map(function (x, i) {
     const col = Array.apply(null, Array(matrixGrid)).map(function (y, j) {
       return (
         <input
           key={j}
           id={`${i}${j}`}
-          onChange={(e) => {
-            matrixDict[e.target.id] = e.target.value;
-          }}
           className=" border border-gray-700 outline-none appearance-none mx-1 my-1 w-8 px-1 rounded "
         ></input>
       );
@@ -87,10 +89,7 @@ export default function ADDITIONJS({ ADDITION }) {
       return (
         <input
           key={j}
-          id={`${i}${j}`}
-          onChange={(e) => {
-            matrixDict2[e.target.id] = e.target.value;
-          }}
+          id={`2${i}${j}`}
           className=" border border-gray-700 outline-none appearance-none mx-1 my-1 w-8 px-1 rounded "
         ></input>
       );
