@@ -6,7 +6,6 @@ import Nav from './Nav';
 import Ad1 from '../ads/Ad1';
 import RightNav from './RightNav';
 
-
 export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
@@ -18,7 +17,8 @@ export default function Container(props) {
     type: 'website',
     ...customMeta
   };
-  console.log("container called")
+
+  const ARE_ADS_ACTIVE = process.env.ARE_ADS_ACTIVE || "NO";
   return (
     <div className="bg-white">
       <Head>
@@ -53,14 +53,18 @@ export default function Container(props) {
         <div className="text-black bg-white before:content-[''] before:table before:clear-both after:content-[''] after:table after:clear-both">
           <div
             id="skip"
-            className="text-center p-2 custom-break:p-7 pt-4 border-gray-200 border-l border-r custom-break:w-4/5 w-full float-left"
+            className={`text-center custom-break:p-7 p-2 pt-4 border-gray-200 border-l border-r ${
+              ARE_ADS_ACTIVE === 'YES'
+                ? 'custom-break:w-4/5'
+                : ''
+            } w-full float-left`}
           >
-            <Ad1 />
-            <hr className="w-full border-1 border-gray-200 mt-3" />
+            {ARE_ADS_ACTIVE == 'YES' ? <Ad1 /> : ''}
+            {/* <hr className="w-full border-1 border-gray-200 mt-3" /> */}
             {children}
             <br />
           </div>
-          <RightNav/>
+          {ARE_ADS_ACTIVE == 'YES' ? <RightNav /> : ''}
         </div>
         <Footer />
       </div>

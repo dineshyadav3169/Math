@@ -86,7 +86,7 @@ export default function Solver({
           }}
           active={currentTab === 'example'? "true": "false"}
         >
-          Examples
+          Details
         </button>
       </div>
 

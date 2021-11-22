@@ -1,9 +1,9 @@
 const mainSlideNavData =  [
+  { link: 'addition', name: 'Addition' },
+  { link: 'substraction', name: 'Substraction' },
   { link: 'lu-decomposition-crout', name: 'LuCrout' },
   { link: 'lu-decomposition-doolittle', name: 'LuDoolittle' },
-  { link: 'addition', name: 'Addition' },
-  { link: 'substraction', name: 'Substraction' }
-]
+];
 
 export const LUCROUT = {
   pageTitle: 'LU decomposition Crout luCrout',
