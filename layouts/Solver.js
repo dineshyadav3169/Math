@@ -10,7 +10,7 @@ export default function Solver({
   data,
   exampleQuestionHandler,
   solution,
-  question,
+  timeStamp,
   children
 }) {
   const [currentTab, setcurrentTab] = useState('example');
@@ -98,7 +98,7 @@ export default function Solver({
           aria-describedby="t1"
         >
           {solution !== false ? (
-            <Solution question={question}>{solution}</Solution>
+            <Solution timeStamp={timeStamp}>{solution}</Solution>
           ) : (
             <p>Your solution will appear here.</p>
           )}

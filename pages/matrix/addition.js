@@ -11,7 +11,7 @@ export default function ADDITIONJS({ ADDITION }) {
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('Something Went Wrong');
   const [solution, setSolution] = useState(false);
-  const [question, setQuestion] = useState('2x+5y=16\n3x+y=11');
+  const [timeStamp, setTimeStamp] = useState(false);
   const dummyScrollUP = useRef();
 
   const [matrixGrid, setMatrixGrid] = useState(2);
@@ -37,16 +37,18 @@ export default function ADDITIONJS({ ADDITION }) {
         }
     }
 
+    const creationTime = new Date().toISOString();
     var POST_QUESTION = {
       "A":matrixNumbers1,
       "B":matrixNumbers2
     }
     Fetcher(MATRIX_ADDITION, {
-      createdAt: new Date().toISOString(),
+      createdAt: creationTime,
       question: POST_QUESTION
     })
       .then((res) => {
         setSolution(res);
+        setTimeStamp(creationTime);
         setIsLoading(false);
         setIsError(false);
       })
@@ -97,13 +99,15 @@ export default function ADDITIONJS({ ADDITION }) {
     return <div key={i}>{col}</div>;
   });
 
-  const exampleQuestionHandler = (event) => {event.preventDefault();};
+  const exampleQuestionHandler = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <Solver
       data={ADDITION}
       solution={solution}
-      question={question}
+      timeStamp={timeStamp}
       exampleQuestionHandler={exampleQuestionHandler}
     >
       <div ref={dummyScrollUP} className="flex self-center justify-center">

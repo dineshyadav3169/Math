@@ -22,7 +22,7 @@ export default function Solution(props) {
 
     const REQUEST_DATA = {
       report_reason: reasonInput.current.value,
-      report_question: props.question || 'NaNa'
+      report_timeStamp: props.timeStamp || 'NaNa'
     };
 
     Fetcher(REPORT, REQUEST_DATA, BASE_URI)

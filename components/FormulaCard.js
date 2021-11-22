@@ -1,6 +1,6 @@
 import React from "react";
 
-function FormulaCard({formulaList}) {
+export default function FormulaCard({formulaList}) {
   return(
     <div className="text-left shadow-md my-4 mx-2 p-4 rounded-md">
       <h3 className=" text-lg font-medium mb-1">Formula Used</h3>
@@ -19,5 +19,3 @@ function FormulaCard({formulaList}) {
     </div>
   )
 }
-
-export default React.memo(FormulaCard);

@@ -12,6 +12,7 @@ export default function LuCrout({ LUDOOLITTLE }) {
   const [ errorMessage, setErrorMessage ] = useState("Something Went Wrong")
   const [solution, setSolution] = useState(false);
   const [question, setQuestion] = useState('2x+5y=16\n3x+y=11');
+  const [timeStamp, setTimeStamp] = useState(false);
   const fixtextarea = useRef();
   const dummyScrollUP = useRef();
 
@@ -19,6 +20,7 @@ export default function LuCrout({ LUDOOLITTLE }) {
     event.preventDefault();
     setIsLoading(true);
 
+    const creationTime = new Date().toISOString();
     let POST_QUESTION = question;
     POST_QUESTION = POST_QUESTION.trim();
     if (
@@ -26,11 +28,12 @@ export default function LuCrout({ LUDOOLITTLE }) {
       POST_QUESTION.split('=').length === 4
     ) {
       Fetcher(MATRIX_LUDOOLITTLE, {
-        createdAt: new Date().toISOString(),
+        createdAt: creationTime,
         question: POST_QUESTION
       })
         .then((res) => {
           setSolution(res);
+          setTimeStamp(creationTime);
           setIsLoading(false);
           setIsError(false);
         })
@@ -73,7 +76,7 @@ export default function LuCrout({ LUDOOLITTLE }) {
     <Solver
       data={LUDOOLITTLE}
       solution={solution}
-      question={question}
+      timeStamp={timeStamp}
       exampleQuestionHandler={exampleQuestionHandler}
     >
       <div ref={dummyScrollUP} className="flex self-center justify-center">
