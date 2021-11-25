@@ -12,8 +12,7 @@ function Nav({ hasData, data }) {
   const active = pathname[1];
   const actives = pathname[2];
   const NAVLINKS = [
-    { link: 'matrix', name: 'MATRIX' },
-    { link: 'algebra', name: 'ALEGBRA' }
+    { link: 'matrix', name: 'MATRIX' }
   ];
 
   console.log('***', isSlide);

@@ -24,16 +24,10 @@ export default function Blog() {
         <FunctionCard
           key="test0001"
           title="Matrix"
-          hasImage={false}
+          hasImage={true}
+          imageLogo="matrix.svg"
           slug="matrix"
           description="Solve Matrix Problem"
-        />
-        <FunctionCard
-          key="test0002"
-          title="Algebra"
-          hasImage={false}
-          slug="algebra"
-          description="Solve Algebra Problem"
         />
       </div>
     </HomeContainer>

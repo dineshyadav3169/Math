@@ -17,10 +17,10 @@ export default function FunctionCard({
       {hasImage && (
         <Image
           alt={title}
-          height={32}
-          width={32}
+          height={100}
+          width={100}
           src={`/logos/${imageLogo}`}
-          className="rounded-full"
+          className=" bg-center self-center text-center items-center origin-center object-center center"
         />
       )}
       <hr className="w-full border-1 border-gray-200 mb-3" />

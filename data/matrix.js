@@ -40,8 +40,8 @@ export const MATRIX_TYPES = [
   {
     type: 'simple',
     number: 9,
-    slug: 'substraction',
-    title: 'Find Substraction of Matrix'
+    slug: 'subtraction',
+    title: 'Find Subtraction of Matrix'
   },
   {
     type: 'simple',
