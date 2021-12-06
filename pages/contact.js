@@ -143,7 +143,7 @@ export default function Contact() {
       </form>
       <br />
       <hr className="w-full border-1 border-gray-200 mb-3" />
-      <p>Email: <a className="text-blue-500 cursor-pointer hover:underline" href="mailto:support@math-node-develop-app.netlify.app" >support@math-node-develop-app.netlify.app</a></p>
+      <p>Email: <a className="text-blue-500 cursor-pointer hover:underline" href="mailto:support@mathsolveonline.com" >support@mathsolveonline.com</a></p>
       
     </HomeContainer>
   );

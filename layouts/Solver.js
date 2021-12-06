@@ -2,9 +2,8 @@ import Container from '@/components/container/Container';
 import PrevNext from '@/components/PrevNext';
 import { useEffect, useRef, useState } from 'react';
 import Solution from './Solution';
-import ExampleCard from '@/components/ExampleCard';
 import ShareCard from '@/components/ShareCard';
-import FormulaCard from '@/components/FormulaCard';
+import DetailCard from '@/components/DetailCard';
 
 export default function Solver({
   data,
@@ -110,12 +109,11 @@ export default function Solver({
           aria-hidden="false"
           aria-describedby="t2"
         >
-          <ExampleCard
+          <DetailCard 
+            detailList={data.detail}
+            detailTitle={data.detailTitle}
             exampleQuestions={data.exampleQuestions}
             exampleQuestionHandler={exampleQuestionHandler}
-          />
-          <FormulaCard 
-            formulaList={data.formula}
           />
         </div>
       )}

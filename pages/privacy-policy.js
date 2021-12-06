@@ -27,7 +27,7 @@ export default function Privacy() {
         <li className="list-item">
           <p>
             <strong>Company</strong> (referred to as either "the Company", "We",
-            "Us" or "Our" in this Agreement) refers to Scanner.
+            "Us" or "Our" in this Agreement) refers to MathSolveOnline.
           </p>
         </li>
         <li className="list-item">
@@ -86,8 +86,8 @@ export default function Privacy() {
         </li>
         <li className="list-item">
           <p>
-            <strong>Website</strong> refers to Scanner, accessible from{' '}
-            <a href="/">OnlinePhotoScanner.com</a>
+            <strong>Website</strong> refers to Math Solver, accessible from{' '}
+            <a href="/" className="text-blue-500">MathSolveOnline.com</a>
           </p>
         </li>
         <li className="list-item">

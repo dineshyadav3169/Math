@@ -41,7 +41,7 @@ export default function Terms() {
           <p>
             <strong>Company</strong> (referred to as either &quot;the
             Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in
-            this Agreement) refers to Math.
+            this Agreement) refers to MathSolveOnline.
           </p>
         </li>
         <li className="list-item">
@@ -82,9 +82,9 @@ export default function Terms() {
         </li>
         <li className="list-item">
           <p>
-            <strong>Website</strong> refers to Math, accessible from{' '}
-            <a href="math.com" rel="external nofollow noopener" target="_blank">
-              math.com
+            <strong>Website</strong> refers to Math Solver, accessible from{' '}
+            <a href="math.com" className="text-blue-500" rel="external nofollow noopener" target="_blank">
+            MathSolveOnline.com
             </a>
           </p>
         </li>
@@ -292,17 +292,17 @@ export default function Terms() {
       </p>
       <ul className="list-disc mx-5 pt-1">
         <li className="list-item">
-          <p>By email: admin@scanner.com</p>
+          <p>By email: admin@mathsolveonline.com</p>
         </li>
         <li className="list-item">
           <p>
             By visiting this page on our website:{' '}
             <a
-              href="https://math.com/contact"
+              href="https://MathSolveOnline.com/contact"
               rel="follow noopener"
               className=" text-blue-500"
             >
-              https://math.com/contact
+              MathSolveOnline.com/contact
             </a>
           </p>
         </li>

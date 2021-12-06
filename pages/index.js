@@ -8,17 +8,10 @@ export default function Blog() {
       description="Math problems solved step by step"
     >
       <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black ">
-        Who are we?
-      </h1>
-      <p className="text-gray-600 mb-4">
-        We are a Math Orgination, using our website you can find solution to
-        every problem step by step.
-      </p>
-      <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black ">
         Problem types
       </h1>
       <p className="text-gray-600 mb-4">
-        Below are the types of problem that we can solve.
+        Select the type of problem that you want to Solve.
       </p>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full mt-4">
         <FunctionCard

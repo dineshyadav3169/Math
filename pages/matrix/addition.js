@@ -10,11 +10,11 @@ export default function ADDITIONJS({ ADDITION }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('Something Went Wrong');
+  const [matrixA, setMatrixA] = useState('1 2\n3 4');
+  const [matrixB, setMatrixB] = useState('4 7\n3 1');
   const [solution, setSolution] = useState(false);
   const [timeStamp, setTimeStamp] = useState(false);
   const dummyScrollUP = useRef();
-
-  const [matrixGrid, setMatrixGrid] = useState(2);
 
   const FindAnswerHandler = (event) => {
     event.preventDefault();
@@ -22,26 +22,30 @@ export default function ADDITIONJS({ ADDITION }) {
 
     var matrixNumbers1 = [];
     var matrixNumbers2 = [];
-    for(var i=0;i<4;i++){
-        for(var j=0;j<4;j++){
-          if(document.getElementById(i+''+j)!==null){
-            matrixNumbers1.push(Number(document.getElementById(i+''+j).value))
-          }
+    for (var i = 0; i < 4; i++) {
+      for (var j = 0; j < 4; j++) {
+        if (document.getElementById(i + '' + j) !== null) {
+          matrixNumbers1.push(
+            Number(document.getElementById(i + '' + j).value)
+          );
         }
+      }
     }
-    for(var i=0;i<4;i++){
-        for(var j=0;j<4;j++){
-          if(document.getElementById('2'+i+''+j)!==null){
-            matrixNumbers2.push(Number(document.getElementById('2'+i+''+j).value))
-          }
+    for (var i = 0; i < 4; i++) {
+      for (var j = 0; j < 4; j++) {
+        if (document.getElementById('2' + i + '' + j) !== null) {
+          matrixNumbers2.push(
+            Number(document.getElementById('2' + i + '' + j).value)
+          );
         }
+      }
     }
 
     const creationTime = new Date().toISOString();
     var POST_QUESTION = {
-      "A":matrixNumbers1,
-      "B":matrixNumbers2
-    }
+      A: matrixNumbers1,
+      B: matrixNumbers2
+    };
     Fetcher(MATRIX_ADDITION, {
       createdAt: creationTime,
       question: POST_QUESTION
@@ -55,7 +59,7 @@ export default function ADDITIONJS({ ADDITION }) {
       .catch((e) => {
         setIsError(true);
         setIsLoading(false);
-      });    
+      });
   };
 
   useEffect(() => {
@@ -72,33 +76,6 @@ export default function ADDITIONJS({ ADDITION }) {
     mathTypeSet();
   }, []);
 
-
-  const matrix = Array.apply(null, Array(matrixGrid)).map(function (x, i) {
-    const col = Array.apply(null, Array(matrixGrid)).map(function (y, j) {
-      return (
-        <input
-          key={j}
-          id={`${i}${j}`}
-          className=" border border-gray-700 outline-none appearance-none mx-1 my-1 w-8 px-1 rounded "
-        ></input>
-      );
-    });
-    return <div key={i}>{col}</div>;
-  });
-
-  const matrix2 = Array.apply(null, Array(matrixGrid)).map(function (x, i) {
-    const col = Array.apply(null, Array(matrixGrid)).map(function (y, j) {
-      return (
-        <input
-          key={j}
-          id={`2${i}${j}`}
-          className=" border border-gray-700 outline-none appearance-none mx-1 my-1 w-8 px-1 rounded "
-        ></input>
-      );
-    });
-    return <div key={i}>{col}</div>;
-  });
-
   const exampleQuestionHandler = (event) => {
     event.preventDefault();
   };
@@ -112,39 +89,37 @@ export default function ADDITIONJS({ ADDITION }) {
     >
       <div ref={dummyScrollUP} className="flex self-center justify-center">
         <form className="grid text-center w-10/12 lg:w-8/12">
-          <label>Enter Equations line by line like</label>
-          {matrixGrid && (
+          
             <div className="flex justify-center">
-              <div>{matrix}</div>
+              <div className="grid">
+                <span>Matrix A</span>
+                <textarea
+                  id="question"
+                  className=" h-28 w-32 border border-solid p-2 outline-none rounded-lg resize-none border-t-0 border-b-0 border-black"
+                  placeholder="Enter Question here"
+                  value={matrixA}
+                  onChange={(event) => {
+                    setMatrixA(event.target.value);
+                  }}
+                ></textarea>
+              </div>
               <div className="flex h-auto">
                 <div className="m-auto">X</div>
               </div>
-              <div>{matrix2}</div>
+              <div className="grid">
+                <span>Matrix B</span>
+                <textarea
+                  id="question"
+                  className=" h-28 w-32 border border-solid p-2 outline-none rounded-lg resize-none border-t-0 border-b-0 border-black"
+                  placeholder="Enter Question here"
+                  value={matrixB}
+                  onChange={(event) => {
+                    setMatrixB(event.target.value);
+                  }}
+                ></textarea>
+              </div>
             </div>
-          )}
-          <div className="mt-1 m-auto relative w-3/6">
-            <select
-              id="matrixGrid"
-              onChange={(e) => {
-                setMatrixGrid(e.target.selectedIndex + 2);
-              }}
-              className="block appearance-none w-full border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            >
-              <option>2x2</option>
-              <option>3x3</option>
-              <option>4x4</option>
-            </select>
-            <div className="absolute flex inset-y-0 items-center px-3 right-0 text-white bg-blue-600 rounded-r pointer-events-none">
-              <svg
-                className="fill-current h-4 w-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
-              </svg>
-            </div>
-          </div>
-          <label htmlFor="matrixGrid">Change Matrix Grid</label>
+          
           {isError && <ErrorMessage>{errorMessage}</ErrorMessage>}
           <button
             type="button"

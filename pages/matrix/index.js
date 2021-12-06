@@ -85,15 +85,6 @@ export default function Matrix() {
           )}
         </div>
       </div>
-      <a
-        href="matrix/example"
-        className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-200 dark:bg-gray-900 text-center rounded-md text-black dark:text-white"
-      >
-        Example Problem's
-        <span aria-hidden="true" className="ml-2">
-          →
-        </span>
-      </a>
     </Container>
   );
 }

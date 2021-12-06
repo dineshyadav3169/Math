@@ -1,24 +1,11 @@
-export const MATRIX_TYPES = [
-  {
-    type: 'simple',
-    number: 1,
-    slug: 'addition',
-    title: 'Find Addition of two matrix'
-  },
-  { type: 'simple', number: 2, slug: 'Adjoint', title: 'Find Adjoint' },
+/*
   {
     type: 'simple',
     number: 3,
     slug: 'cofactor',
     title: 'Find Cofactor of Matrix'
   },
-  {
-    type: 'simple',
-    number: 4,
-    slug: 'determinant',
-    title: 'Find Determinant of Matrix'
-  },
-  {
+    {
     type: 'simple',
     number: 5,
     slug: 'Inverse',
@@ -39,12 +26,6 @@ export const MATRIX_TYPES = [
   },
   {
     type: 'simple',
-    number: 9,
-    slug: 'subtraction',
-    title: 'Find Subtraction of Matrix'
-  },
-  {
-    type: 'simple',
     number: 10,
     slug: 'Trace',
     title: 'Find Trace of Matrix'
@@ -54,6 +35,12 @@ export const MATRIX_TYPES = [
     number: 11,
     slug: 'transpose',
     title: 'Find Transpose of Matrix'
+  },
+  {
+    type: 'advance',
+    number: 9,
+    slug: 'lq-decomposition',
+    title: 'LQ Decomposition'
   },
   {
     type: 'advance',
@@ -83,24 +70,6 @@ export const MATRIX_TYPES = [
   { type: 'advance', number: 6, slug: 'eigenvalues', title: 'Eigenvalues' },
   { type: 'advance', number: 7, slug: 'eigenvectors', title: 'Eigenvectors' },
   { type: 'advance', number: 8, slug: 'gram-schmidt', title: 'Gram Schmidt' },
-  {
-    type: 'advance',
-    number: 9,
-    slug: 'lq-decomposition',
-    title: 'LQ Decomposition'
-  },
-  {
-    type: 'advance',
-    number: 10,
-    slug: 'lu-decomposition-crout',
-    title: 'LU Decomposition Crout'
-  },
-  {
-    type: 'advance',
-    number: 11,
-    slug: 'lu-decomposition-doolittle',
-    title: 'LU Decomposition Doolittle'
-  },
   {
     type: 'advance',
     number: 12,
@@ -138,5 +107,39 @@ export const MATRIX_TYPES = [
     number: 19,
     slug: 'triangular-matrix',
     title: 'Triangular Matrix'
+  }
+*/
+
+export const MATRIX_TYPES = [
+  {
+    type: 'simple',
+    number: 1,
+    slug: 'addition',
+    title: 'Find Addition of two matrix'
+  },
+  {
+    type: 'simple',
+    number: 2,
+    slug: 'subtraction',
+    title: 'Find Subtraction of Matrix'
+  },
+  { type: 'simple', number: 3, slug: 'Adjoint', title: 'Find Adjoint' },
+  {
+    type: 'simple',
+    number: 4,
+    slug: 'determinant',
+    title: 'Find Determinant of Matrix'
+  },
+  {
+    type: 'advance',
+    number: 1,
+    slug: 'lu-decomposition-crout',
+    title: 'LU Decomposition Crout'
+  },
+  {
+    type: 'advance',
+    number: 2,
+    slug: 'lu-decomposition-doolittle',
+    title: 'LU Decomposition Doolittle'
   }
 ];
