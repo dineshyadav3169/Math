@@ -111,7 +111,6 @@ export default function Solver({
         >
           <DetailCard 
             detailList={data.detail}
-            detailTitle={data.detailTitle}
             exampleQuestions={data.exampleQuestions}
             exampleQuestionHandler={exampleQuestionHandler}
           />

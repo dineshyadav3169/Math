@@ -1,8 +1,7 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export default function DetailCard({
   detailList,
-  detailTitle,
   exampleQuestions,
   exampleQuestionHandler
 }) {
@@ -40,20 +39,26 @@ export default function DetailCard({
           ))}
         </div>
       </div>
-      <div className="text-left shadow-md my-4 mx-2 p-4 rounded-md">
-        <h3 className=" text-lg font-medium mb-1">{detailTitle}</h3>
-        <div className="text-indigo-800 grid">
-          {detailList.map((detail) => (
+      {detailList.map((detail) => (
+      <div className="text-left shadow-md my-4 mx-2 p-4 rounded-md" key={detail.key}>
+        <h3 className=" text-lg font-medium mb-1">{detail.detailTitle}</h3>
+        <div className="grid">
+            {detail.data.map((detailItem) => (
             <span
-              key={detail.id}
-              className="my-1 hover:underline hover:text-indigo-500"
-              id={detail.id}
+              key={detailItem.id}
+              className="my-1"
+              id={detailItem.id}
             >
-              `{detail.detail}`
-            </span>
-          ))}
+              {detailItem.detail
+                .replace('**', '`')
+                .replace('**', '`')
+                .replace('**', '`')
+                .replace('**', '`')}
+              </span>
+            ))}        
         </div>
       </div>
+      ))}
     </>
   );
 }

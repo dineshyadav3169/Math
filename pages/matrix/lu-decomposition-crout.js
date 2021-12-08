@@ -78,7 +78,7 @@ export default function LuCrout({ LUCROUT }) {
       timeStamp={timeStamp}
       exampleQuestionHandler={exampleQuestionHandler}
     >
-      <div className="flex self-center justify-center">
+      <div ref={dummyScrollUP} className="flex self-center justify-center">
         <form className="grid text-center w-10/12 lg:w-8/12">
           <label htmlFor="question">Enter Equations line by line like</label>
           <textarea
