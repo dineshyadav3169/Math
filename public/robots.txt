@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://strategytoinvest.com/sitemap.xml
+Sitemap: https://mathfinding.com/sitemap.xml

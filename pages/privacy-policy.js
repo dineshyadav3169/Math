@@ -87,7 +87,7 @@ export default function Privacy() {
         <li className="list-item">
           <p>
             <strong>Website</strong> refers to Math Solver, accessible from{' '}
-            <a href="/" className="text-blue-500">MathSolveOnline.com</a>
+            <a href="/" className="text-blue-500">mathfinding.com</a>
           </p>
         </li>
         <li className="list-item">

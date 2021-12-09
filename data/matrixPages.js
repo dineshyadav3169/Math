@@ -1,10 +1,10 @@
 const mainSlideNavData = [
-  { link: 'addition', name: 'Addition Calculator' },
-  { link: 'subtraction', name: 'Substraction Calculator' },
-  { link: 'adjoint', name: 'Adjoint Calculator' },
-  { link: 'determinant', name: 'Determinant Calculator' },
-  { link: 'lu-decomposition-crout', name: 'LuCrout Calculator' },
-  { link: 'lu-decomposition-doolittle', name: 'LuDoolittle Calculator' }
+  { link: 'addition', name: 'Addition' },
+  { link: 'subtraction', name: 'Substraction' },
+  { link: 'adjoint', name: 'Adjoint' },
+  { link: 'determinant', name: 'Determinant' },
+  { link: 'lu-decomposition-crout', name: 'LuCrout' },
+  { link: 'lu-decomposition-doolittle', name: 'LuDoolittle' }
 ];
 
 export const LUCROUT = {

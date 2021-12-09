@@ -83,8 +83,8 @@ export default function Terms() {
         <li className="list-item">
           <p>
             <strong>Website</strong> refers to Math Solver, accessible from{' '}
-            <a href="math.com" className="text-blue-500" rel="external nofollow noopener" target="_blank">
-            MathSolveOnline.com
+            <a href="mathfinding.com" className="text-blue-500" rel="external nofollow noopener" target="_blank">
+            mathfinding.com
             </a>
           </p>
         </li>
@@ -292,17 +292,17 @@ export default function Terms() {
       </p>
       <ul className="list-disc mx-5 pt-1">
         <li className="list-item">
-          <p>By email: admin@mathsolveonline.com</p>
+          <p>By email: admin@mathfinding.com</p>
         </li>
         <li className="list-item">
           <p>
             By visiting this page on our website:{' '}
             <a
-              href="https://MathSolveOnline.com/contact"
+              href="https://mathfinding.com/contact"
               rel="follow noopener"
               className=" text-blue-500"
             >
-              MathSolveOnline.com/contact
+              mathfinding.com/contact
             </a>
           </p>
         </li>

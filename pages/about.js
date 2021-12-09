@@ -8,7 +8,7 @@ export default function About() {
       </h1>
       <p>The website is designed to provide online math solutions to students of all levels. We take each step of the problem solving process seriously, so that you can understand the concepts and get the best results.</p>
       <br />
-      <p>MathSolveOnline.com website provides step-by-step solutions to math problems. We cover a wide range of topics, from basic operations to more complex problems. </p>
+      <p>MathFinding.com website provides step-by-step solutions to math problems. We cover a wide range of topics, from basic operations to more complex problems. </p>
       <h2 className="font-bold text-xl md:text-2xl tracking-tight mb-4 mt-8 text-black">
         Mission
       </h2>

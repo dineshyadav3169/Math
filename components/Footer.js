@@ -27,12 +27,12 @@ export default function Footer() {
 
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://twitter.com/something">
+          {/* <ExternalLink href="https://twitter.com/something">
             Twitter
           </ExternalLink>
           <ExternalLink href="https://pinterset.com">
             Pinterset
-          </ExternalLink>
+          </ExternalLink> */}
         </div>
         <div className="flex flex-col space-y-4">
         <a

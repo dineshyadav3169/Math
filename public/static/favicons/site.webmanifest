@@ -1,7 +1,7 @@
 {
-    "name": "Strategy to Invest",
-    "short_name": "strategytoinvest.com",
-    "description": "Personal finance blog - that includes everything",
+    "name": "Mathematics Solver",
+    "short_name": "mathfinding.com",
+    "description": "solve math problems step by step",
     "icons": [
         {
             "src": "/static/favicons/android-chrome-192x192.png",
