@@ -1,5 +1,5 @@
 export default function ShareCard({ currentPage, subDirectory }) {
-  const DOMAIN = process.env.DOMAIN_NAME || 'https://mathfinding.com';
+  const DOMAIN = https://mathfinding.com || 'https://mathfinding.com';
   const Description = ""
   return (
     <div className=" text-left m-4">

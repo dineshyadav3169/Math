@@ -13,7 +13,7 @@ export default function Container(props) {
   const meta = {
     title: 'Math - step by step',
     description: `Home page of math web app`,
-    image: `${process.env.DOMAIN_NAME}/static/images/banner.png`,
+    image: `https://mathfinding.com/static/images/banner.png`,
     type: 'website',
     ...customMeta
   };
@@ -27,11 +27,11 @@ export default function Container(props) {
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
-          content={`${process.env.DOMAIN_NAME}/${router.asPath}`}
+          content={`https://mathfinding.com/${router.asPath}`}
         />
         <link
           rel="canonical"
-          href={`${process.env.DOMAIN_NAME}/${router.asPath}`}
+          href={`https://mathfinding.com/${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Math" />
