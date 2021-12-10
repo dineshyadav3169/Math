@@ -1,11 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mathfinding.com</loc>
-  </url>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-  <url>
-    <loc>https://mathfinding.com/contact</loc>
-  </url>
+
+<url>
+  <loc>https://mathfinding.com/</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+</url>
+<url>
+  <loc>https://mathfinding.com/contact</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+<url>
+  <loc>https://mathfinding.com/about</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+<url>
+  <loc>https://mathfinding.com/matrix</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+<url>
+  <loc>https://mathfinding.com/terms</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+<url>
+  <loc>https://mathfinding.com/privacy-policy</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+<url>
+  <loc>https://mathfinding.com/matrix/addition</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+<url>
+  <loc>https://mathfinding.com/matrix/subtraction</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+<url>
+  <loc>https://mathfinding.com/matrix/adjoint</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+<url>
+  <loc>https://mathfinding.com/matrix/determinant</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+<url>
+  <loc>https://mathfinding.com/matrix/lu-decomposition-crout</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+<url>
+  <loc>https://mathfinding.com/matrix/lu-decomposition-doolittle</loc>
+  <lastmod>2021-12-10T05:39:32+00:00</lastmod>
+  
+</url>
+
 
 </urlset>
