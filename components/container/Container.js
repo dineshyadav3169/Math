@@ -23,7 +23,6 @@ export default function Container(props) {
     <div className="bg-white">
       <Head>
         <title>{meta.title}</title>
-        <meta name="robots" content="nofollow, noindex" />
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
