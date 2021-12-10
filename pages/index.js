@@ -5,7 +5,7 @@ export default function Blog() {
   return (
     <HomeContainer
       title="Home - Math"
-      description="Math problems solved step by step"
+      description="Online Math Solver for providing step-by-step solution to every math problem"
     >
       <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black ">
         Problem types

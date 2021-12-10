@@ -2,7 +2,7 @@ import HomeContainer from '@/components/HomeContainer';
 
 export default function About() {
   return (
-    <HomeContainer>
+    <HomeContainer title="About and Mission">
       <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black ">
         About
       </h1>

@@ -53,7 +53,7 @@ export default function Contact() {
       });
   };
   return (
-    <HomeContainer title="Contact" description="">
+    <HomeContainer title="Contact - MathFinding" description="">
       <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black ">
         Contact Form
       </h1>

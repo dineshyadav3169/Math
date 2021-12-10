@@ -2,7 +2,7 @@ import HomeContainer from '@/components/HomeContainer';
 
 export default function Terms() {
   return (
-    <HomeContainer>
+    <HomeContainer title="Terms and Conditions">
       <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black ">
         Terms and Conditions
       </h1>

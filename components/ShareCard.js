@@ -1,6 +1,6 @@
 export default function ShareCard({ currentPage, subDirectory }) {
-  const DOMAIN = https://mathfinding.com || 'https://mathfinding.com';
-  const Description = ""
+  const DOMAIN = 'https://mathfinding.com';
+  const Description = "Online Math Solver for providing step-by-step solution to every math problem"
   return (
     <div className=" text-left m-4">
       <span className="font-medium mb-2">Share</span>
