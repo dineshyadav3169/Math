@@ -26,11 +26,11 @@ export default function Container(props) {
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
-          content={`https://mathfinding.com/${router.asPath}`}
+          content={`https://mathfinding.com${router.asPath}`}
         />
         <link
           rel="canonical"
-          href={`https://mathfinding.com/${router.asPath}`}
+          href={`https://mathfinding.com${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Math" />
